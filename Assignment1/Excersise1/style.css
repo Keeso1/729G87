@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh; /* Viewport height*/
+    min-width: 100vw;
+    margin: 0;
+    background-color: antiquewhite;
+    
+}
+
+.safe {
+    justify-content: space-between;
+}
+
+.wrapper {
+    max-width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: safe center;
+    
+    align-items: center;
+    padding: 10px;
+    border: 2px solid rgb(96 139 168);
+    border-radius: 5px;
+
+    background-color: navy;
+}
+
+.card {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 250px;
+    height: 350px;
+
+    border-radius: 5px;
+    background-color: white;
+}
+
+
+.bottom {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+}
+
+.left {
+    left: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.right {
+    right: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50%;
+}
+
+.box {
+    display: inline-block;
+    max-height: 150px;
+    max-width: 150px;
+    min-height: 50px;
+    min-width: 50px;
+    text-align: center;
+    align-content: center;
+    background-color: gray;
+}
+
+.a .box {
+    position: relative;
+    align-content: space-evenly;
+    margin-right: 10px;
+    top: 115px;
+    left: 10px;
+}
+.a.box {
+    background-color: rgb(44, 10, 44);
+    color: white;
+}
+
+.c .b.box {
+    background-color: orangered;
+}
