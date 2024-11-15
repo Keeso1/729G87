@@ -5,7 +5,6 @@ body {
     min-width: 100vw;
     margin: 0;
     background-color: antiquewhite;
-    
 }
 
 .wrapper {
@@ -15,27 +14,40 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-around;
-
-    
-    
     border: 2px solid rgb(96 139 168);
     border-radius: 5px;
-
     background-color: rgb(96 139 168);
 }
 
+.box{
+    z-index: 1;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: large;
+    color: black;
+    background-color: grey;
+}
+
 .card {
+    display: flex;
     position: relative;
     width: 250px;
     height: 350px;
     margin: 15px;
     border-radius: 0px;
     border-color: black;
+    .a.box{
+        color:white;
+        background-color: purple;
+    }
 }
 
 .background {
-    width: 250px;
-    height: 350px;
+    z-index: 0;
+    position: absolute;
+    width: inherit;
+    height: inherit;
     font-size: 80px;
     border: 1px solid grey;
     border-radius: 5px;
@@ -44,63 +56,89 @@ body {
     background-color: white;
 }
 
-.box{
-    position:absolute;
-    text-align: center;
-    align-content: center;
-    width: 50px;
-    height: 50px;
-    color: black;
-    background-color: grey;
+.card.a{
+    flex-direction: row;
+    align-items: end;
+    justify-content: left;
+    .box{
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
 }
 
-.card .a.box{
-    color:white;
-    background-color: purple;
+.card.b{
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    .box{
+        margin-right:5%;
+        margin-bottom: 5%
+    }
+     .b{
+        margin-right: -10%;
+        margin-bottom: 5%;
+     }
 }
 
-.d .box{
-    transform: rotate(90deg);
+.card.c{
+    flex-direction: row;
+    align-items: start;
+    justify-content: left;
+    .box{
+        margin-right: 10%;
+        margin-left: -5%;
+        margin-top: 5%;
+    }
+     .b{
+        background-color: orangered;
+     }
 }
 
+.card.d{
+    flex-direction: column;
+    justify-content: space-around;
+    .box{
+        transform: rotate(90deg);
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
 
-.card.a .a { top: 83%; left: 3%; }
-.card.a .b { top: 83%; left: 27%; }
-.card.a .c { top: 83%; left: 51%; }
+.card.e{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
-.card.b .a { top: 83%; right: 3%; }
-.card.b .b { top: 66%; left: 83%; }
-.card.b .c { top: 49%; right: 3%; }
+.card.e .a{
+    border-radius: 5px 0px 0px 0px;
+}
 
-.card.c .a { bottom: 83%; left: -5%; }
-.card.c .b { bottom: 83%; left: 19%; background-color: orangered;}
-.card.c .c { bottom: 83%; left: 43%; }
+.card.e .b{
+    border-radius: 0px 5px 0px 0px;
+    margin-left: 60%;
+}
 
-.card.d .a { top: 15%; right: 80%; }
-.card.d .b { top: 43%; right: 80%; }
-.card.d .c { bottom: 15%; right: 80%; }
-
-.card.e .a { top: 0%; right: 80%; border-radius: 5px 0px 0px 0px}
-.card.e .b { top: 0%; right: -0.5%; border-radius: 0px 5px 0px 0px}
-.card.e .c { bottom: -0.5%; right: -0.5%; border-radius: 0px 0px 5px 0px}
+.card.e .c{
+    border-radius: 0px 0px 5px 0px;
+    margin-left: 80%;
+    align-self: flex-end;
+}
 
 .fixed {
+    position: fixed;
     width: 200px;
     height: 200px;
     background-color: #9e9e9e;
     color: black;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     font-size: 18px;
-    position: fixed;
     bottom: 0px;
   }
   
-  .bottom.left {
+.left {
     left: 0px;
   }
   
-  .bottom.right {
+.right {
     right: 0px;
   }
