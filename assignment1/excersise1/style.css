@@ -13,8 +13,9 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-content: space-around;
+
     
     
     border: 2px solid rgb(96 139 168);
@@ -27,6 +28,7 @@ body {
     position: relative;
     width: 250px;
     height: 350px;
+    margin: 15px;
     border-radius: 0px;
     border-color: black;
 }
@@ -62,20 +64,20 @@ body {
 }
 
 
-.card.a .a { top: 83%; left: 1%; }
-.card.a .b { top: 83%; left: 25%; }
-.card.a .c { top: 83%; left: 49%; }
+.card.a .a { top: 83%; left: 3%; }
+.card.a .b { top: 83%; left: 27%; }
+.card.a .c { top: 83%; left: 51%; }
 
 .card.b .a { top: 83%; right: 3%; }
 .card.b .b { top: 66%; left: 83%; }
 .card.b .c { top: 49%; right: 3%; }
 
-.card.c .a { bottom: 83%; left: -10%; }
-.card.c .b { bottom: 83%; left: 14%; background-color: orangered;}
-.card.c .c { bottom: 83%; left: 38%; }
+.card.c .a { bottom: 83%; left: -5%; }
+.card.c .b { bottom: 83%; left: 19%; background-color: orangered;}
+.card.c .c { bottom: 83%; left: 43%; }
 
 .card.d .a { top: 15%; right: 80%; }
-.card.d .b { top: 43.5%; right: 80%; }
+.card.d .b { top: 43%; right: 80%; }
 .card.d .c { bottom: 15%; right: 80%; }
 
 .card.e .a { top: 0%; right: 80%; border-radius: 5px 0px 0px 0px}
