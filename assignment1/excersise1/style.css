@@ -31,9 +31,9 @@ body {
     border:solid 1px;
 }
 .card .a.box{
-        color:white;
-        background-color: purple;
-    }
+    color:white;
+    background-color: purple;
+}
 
 .box{
     z-index: 1;
@@ -84,12 +84,12 @@ body {
 }
 
 .card.c .box{
-        margin-right: 10%;
-        margin-left: -5%;
-    }
+    margin-right: 10%;
+    margin-left: -5%;
+}
 .card.c .b{
-        background-color: orangered;
-     }
+    background-color: orangered;
+}
 
 
 .card.d{
@@ -98,10 +98,10 @@ body {
 }
 
 .card.d .box{
-        transform: rotate(90deg);
-        margin-top: 10%;
-        margin-bottom: 10%;
-        margin-left: 0%;
+    transform: rotate(90deg);
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 0%;
 
 }   
 
