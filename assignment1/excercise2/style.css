@@ -32,7 +32,7 @@ body {
         display: flex;
         flex-direction: column-reverse;
         height: 50%;
-        font-size: large;
+        font-size: 10vh;
         margin-left: 3%;
         margin-top: 0;
         margin-bottom: 3%;
@@ -91,7 +91,7 @@ img {
     .post-title {
         margin-left: 5%;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: small;
+        font-size: 5vh;
         animation: slidein 1s;
     }
 
@@ -99,7 +99,7 @@ img {
         display: flex;
         justify-content: center;
         margin: 5%;
-        font-size: xx-small;
+        font-size: 4vh;
         line-height: 1;
     }
 }
