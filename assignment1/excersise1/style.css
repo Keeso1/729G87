@@ -8,7 +8,7 @@ body {
 }
 
 .wrapper {
-    max-width: 50vw;
+    width: 50vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -16,8 +16,6 @@ body {
     align-content: space-around;
     background-color: rgb(144, 211, 255);
 }
-
-
 
 .card {
     display: flex;
@@ -29,7 +27,6 @@ body {
 }
 
 .box {
-
     z-index: 1;
     text-align: center;
     align-content: center;
@@ -48,7 +45,6 @@ body {
     height: 40px;
 }
 
-
 .background {
     z-index: 0;
     position: absolute;
@@ -64,7 +60,6 @@ body {
 .card.a{
     flex-direction: row;
     align-items: end;
-
 }
 
 .card.b{
@@ -88,7 +83,6 @@ body {
     margin-left: -5%;
 }
 
-
 .card.d{
     flex-direction: column;
     justify-content: space-around;
@@ -96,8 +90,7 @@ body {
 
 .card.d .box{
     transform: rotate(90deg);
-    margin-left: 0%;
-
+    margin: 0%;
 }   
 
 .card.e{
@@ -117,7 +110,6 @@ body {
 .card.e .b{
     top:0%;
     right:0%;
-    
 }
 
 .card.e .c{
@@ -130,13 +122,13 @@ body {
     width: 200px;
     height: 200px;
     font-size: 18px;
-    bottom: 0px;
+    bottom: 0%;
   }
   
-.left {
-    left: 0px;
+.fixed.left {
+    left: 0%;
   }
   
-.right {
-    right: 0px;
+.fixed.right {
+    right: 0%;
   }
