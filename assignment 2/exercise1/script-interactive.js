@@ -1,4 +1,4 @@
-// hämta alla nödvändiga element
+// hämta alla nödvändiga element för pilfunktioner
 const leftArrow = document.getElementById('leftarrow');
 const rightArrow = document.getElementById('rightarrow');
 const images = document.querySelectorAll('#middle .imgBox img');
@@ -19,6 +19,34 @@ function updateImages(index) {
   });
 }
 
+function mouseOver(Object){
+  Object.style.borderRight = '2vw solid green';
+}
+
+function mouseOut(Object){
+  Object.style.borderRight = '2vw solid gray';
+}
+
+leftArrow.addEventListener('mouseover',
+  () => {
+    mouseOver(leftArrow);
+  },);
+
+leftArrow.addEventListener('mouseout',
+  () => {
+    mouseOut(leftArrow);
+  },);
+
+rightArrow.addEventListener('mouseover',
+  () => {
+    mouseOver(rightArrow);
+  },);
+
+rightArrow.addEventListener('mouseout',
+  () => {
+    mouseOut(rightArrow);
+  },);
+
 // Event listener för vänster pil, klick sänker current index med 1 och använder modulo för att sätta current index till 7 och loopa bak.
 leftArrow.addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -30,6 +58,15 @@ rightArrow.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % images.length;
   updateImages(currentIndex);
 });
+
+bottomImages.forEach((img, idx) => {
+  img.addEventListener('click', () => {
+    currentIndex = idx;
+    updateImages(currentIndex);
+  });
+});
+
+
 
 // instanserar första fotot
 updateImages(currentIndex);
