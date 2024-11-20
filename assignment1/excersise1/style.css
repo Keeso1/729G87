@@ -111,19 +111,16 @@ body {
 }
 
 .card.e .a{
-    border-radius: 5px 0px 0px 0px;
     top:0%;
 }
 
 .card.e .b{
-    border-radius: 0px 5px 0px 0px;
     top:0%;
     right:0%;
     
 }
 
 .card.e .c{
-    border-radius: 0px 0px 5px 0px;
     bottom:0%;
     right:0%;
 }
