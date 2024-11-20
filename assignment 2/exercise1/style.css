@@ -85,10 +85,10 @@ img {
 }
 
 #rightarrow {
+    transform: rotate(180deg);
     border-top: 3vh solid transparent;
     border-bottom: 3vh solid transparent;
-    
-    border-left: 2vw solid gray;
+    border-right: 2vw solid gray;
     cursor: grab;
 }
 
