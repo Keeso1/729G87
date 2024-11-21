@@ -1,53 +1,48 @@
 body {
     display: flex;
     justify-content: center;
-    min-height: 100vh; /* Viewport height*/
+    min-height: 100vh; 
     min-width: 100vw;
     margin: 0;
     background-color: antiquewhite;
 }
 
 .wrapper {
-    max-width: 50vw;
+    width: 50vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-around;
-    border: 2px solid rgb(96 139 168);
-    border-radius: 5px;
-    background-color: rgb(96 139 168);
+    background-color: rgb(144, 211, 255);
 }
-
-
 
 .card {
     display: flex;
-    position: relative;
-    width: 250px;
-    height: 350px;
-    margin: 15px;
+    width: 14vw;
+    height: 20vw;
+    margin: 1%;
     border-radius: 5px;
     border:solid 1px;
 }
+
+.box {
+    z-index: 1;
+    text-align: center;
+    align-content: center;
+    color: black;
+    background-color: grey;
+}
+
 .card .a.box{
     color:white;
     background-color: purple;
 }
 
-.box{
-    z-index: 1;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    font-size: large;
-    color: black;
-    background-color: grey;
-    justify-content: center;
-    align-content: center;
-}
 .card .box{
     margin: 2.5%;
+    width: 40px;
+    height: 40px;
 }
 
 .background {
@@ -65,8 +60,6 @@ body {
 .card.a{
     flex-direction: row;
     align-items: end;
-    justify-content: left;
-
 }
 
 .card.b{
@@ -79,18 +72,16 @@ body {
 
 .card.c{
     flex-direction: row;
-    align-items: start;
     justify-content: left;
 }
 
-.card.c .box{
-    margin-right: 10%;
-    margin-left: -5%;
-}
 .card.c .b{
     background-color: orangered;
 }
 
+.card.c .a{
+    margin-left: -5%;
+}
 
 .card.d{
     flex-direction: column;
@@ -99,11 +90,13 @@ body {
 
 .card.d .box{
     transform: rotate(90deg);
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: 0%;
-
+    margin: 0%;
 }   
+
+.card.e{
+    overflow: hidden;
+    position: relative;
+}
 
 .card.e .box{
     margin: 0%;
@@ -111,19 +104,15 @@ body {
 }
 
 .card.e .a{
-    border-radius: 5px 0px 0px 0px;
     top:0%;
 }
 
 .card.e .b{
-    border-radius: 0px 5px 0px 0px;
     top:0%;
     right:0%;
-    
 }
 
 .card.e .c{
-    border-radius: 0px 0px 5px 0px;
     bottom:0%;
     right:0%;
 }
@@ -132,16 +121,14 @@ body {
     position: fixed;
     width: 200px;
     height: 200px;
-    background-color: #9e9e9e;
-    color: black;
     font-size: 18px;
-    bottom: 0px;
-  }
+    bottom: 0%;
+}
   
-.left {
-    left: 0px;
-  }
+.fixed.left {
+    left: 0%;
+}
   
-.right {
-    right: 0px;
-  }
+.fixed.right {
+    right: 0%;
+}
