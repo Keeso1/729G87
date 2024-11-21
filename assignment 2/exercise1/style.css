@@ -107,7 +107,7 @@ img {
     border: 0.2vw solid white;
 }
 
-.boxContainer > .imgBox:nth-child(1) {
+.boxContainer > .imgBox:nth-child(1) { /*Make first child have bigger border*/
     border: 0.5vw solid white;
 }
 
