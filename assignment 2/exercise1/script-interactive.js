@@ -66,7 +66,5 @@ bottomImages.forEach((img, idx) => {
   });
 });
 
-
-
 // instanserar första fotot
 updateImages(currentIndex);
