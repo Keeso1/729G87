@@ -1,49 +1,30 @@
 
 body {
     margin: 0px;
-    position: absolute;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-image: url(images/greyzz.png);
 }
 
 #wrapper {
-    display: flex;
     width: 70%;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: white;
 }
 
 #header {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    padding-top: 20%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 50vh;
     background-image: url(images/header.jpeg);
     background-size: cover;
     background-position-y: 70%;
-    background-repeat: no-repeat;
     color: white;
-    align-items: flex-end;
-    h1{
-        display: flex;
-        flex-direction: column-reverse;
-        height: 50%;
-        font-size: 10vh;
-        margin-left: 3%;
-        margin-top: 0;
-        margin-bottom: 3%;
-        font-family: Arial, Helvetica, sans-serif;
-    }
 }
 
 #posts {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     margin: 10%;
     animation: fadein 3s;
 }
@@ -67,40 +48,39 @@ body {
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+    height: 100%;
+    width: 90%;
 }
 
 .image-post {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-bottom: 10%;
-
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 0px 0px 3px black;
     
 
     .post-image {
-        width: inherit;
-        margin-left: 5%;
-        margin-right: 5%;
+        display: flex;
+        height: 50%;
+        width: 100%;
+        justify-content: center;
     }
 
     .post-title {
-        margin-left: 5%;
-        font-family: Arial, Helvetica, sans-serif;
         font-size: 5vh;
         animation: slidein 1s;
     }
 
     .post-description {
-        display: flex;
-        justify-content: center;
         margin: 5%;
         font-size: 4vh;
-        line-height: 1;
     }
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: left;
+    margin: 5%;
+    font-size: 10vh;
 }
 
