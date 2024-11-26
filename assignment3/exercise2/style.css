@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: row;
 }
-.empty {
+.boxes div {
     height: 10vh;
     width: 10vh;
     margin: 1%;
