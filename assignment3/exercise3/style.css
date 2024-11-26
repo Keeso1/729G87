@@ -7,10 +7,13 @@ body{
 
 .options{
     width: 50%;
+    margin-left: 3%;
+    margin-top: 5%;
 }
 
 .results{
     width: 50%;
+    margin-top: 3%;
 }
 
 .controls{
@@ -23,9 +26,21 @@ textarea{
     width: 40vw;
 }
 
+.title{
+    font-size: 200%;
+}
 
+.content * {
+    border:none;
+}
 
 #styleSelect{
     height: 5vh;
     width: 25vw;
+}
+
+button{
+    margin-left: 1%;
+    height: 5vh;
+    width: 7.2vw;
 }
