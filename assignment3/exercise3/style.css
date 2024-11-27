@@ -30,8 +30,8 @@ textarea{
     font-size: 5vh;
 }
 
-.content * {
-    border:none;
+.content div{
+    margin-top: 5%;
 }
 
 #styleSelect{
