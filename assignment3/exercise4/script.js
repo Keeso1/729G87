@@ -11,11 +11,9 @@ function init (){
 
     circles.forEach((element) => {
     element.addEventListener('click', ()=>{
-        if (element.classList.contains("green")){
-            element.classList.remove("green");
-        } else {
-        element.classList.add("green");
-     }})
+        element.classList.toggle("green")
+      
+     })
     })
 
     squares.forEach((element) => {
