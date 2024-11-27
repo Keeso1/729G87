@@ -27,7 +27,7 @@ textarea{
 }
 
 .title{
-    font-size: 200%;
+    font-size: 5vh;
 }
 
 .content * {
@@ -35,12 +35,13 @@ textarea{
 }
 
 #styleSelect{
-    height: 5vh;
+    height: 6vh;
     width: 25vw;
 }
 
 button{
     margin-left: 1%;
-    height: 5vh;
+    height: 6vh;
     width: 7.2vw;
+    font-size: 2vh;
 }
