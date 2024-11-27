@@ -18,6 +18,7 @@ button{
     margin: 10%;
     width: 10vw;
     font-size: 4vh;
+    border-width: 0.1vh;
 }
 
 .right{
@@ -33,13 +34,5 @@ button{
     height: 10vh;
     width: 10vh;
     background-color: blue;
-}
-
-button.active {
-    background-color: aquamarine;
-}
-
-.box.active{
-    background-color: beige;
 }
 
