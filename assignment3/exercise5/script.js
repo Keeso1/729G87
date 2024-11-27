@@ -12,7 +12,6 @@ function init (){
                 targets: element,
                 height: '70vh', 
                 easing: 'easeInOutQuad',
-                direction: 'alternative',
                 loop: false
               });
             
@@ -22,7 +21,6 @@ function init (){
                 targets: element,
                 height: '5vh', 
                 easing: 'easeInOutQuad',
-                direction: 'alternative',
                 loop: false
               });
     })

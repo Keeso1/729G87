@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function init(){
     const styleInput = document.querySelector('#styleInput');
-    let styleOutput = document.querySelector('#styleOutput');
-    const styleSelect = document.querySelector("#styleSelect");
+    let styleOutput = document.querySelectorAll('.content div');
+    let styleSelect = document.querySelector("#styleSelect");
     const changeStyleBtn = document.querySelector(".changeStyle-btn");
     const newParagraphBtn = document.querySelector(".newParagraph-btn");
     const content = document.querySelector(".content")
@@ -18,12 +18,12 @@ function init(){
     });
 
     styleInput.addEventListener('input', ()=> {
-        styleOutput.value = styleInput.value;
+        styleOutput.innerHMTL = styleInput.value;
            }
     )
 
     newParagraphBtn.addEventListener('click',()=>{
-        let newPar = document.createElement("textarea")
+        let newPar = document.createElement("div")
         content.appendChild(newPar)
         styleOutput = newPar;
     }
