@@ -26,6 +26,8 @@ function init(){
         let newPar = document.createElement("div");
         content.appendChild(newPar);
         styleOutput = newPar;
+        let font = styleSelect.value;
+        styleOutput.style.fontFamily = font;
     }
 
     )
