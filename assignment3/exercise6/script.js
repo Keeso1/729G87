@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const btnId = btn.getAttribute('data-id');
 
                 if (btnId === id) {
-                    btn.style.borderColor = "rgba(207,76,146,255)";
+                    btn.style.borderColor = "blue";
                     anime({
                         targets: btn,
                         borderWidth: "1vh",
