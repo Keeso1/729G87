@@ -9,25 +9,46 @@ document.addEventListener('DOMContentLoaded', () => {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             const id = button.getAttribute('data-id');
-            button.classList.toggle("active")
+            
 
+            buttons.forEach((btn) => {
+                anime.remove(btn);
+                const btnId = btn.getAttribute('data-id');
 
-
-            boxes.forEach((box) => {
-                const boxId = box.getAttribute('data-id');
-                if (boxId === id) {
-                    // Animate the active box
+                if (btnId === id) {
+                    btn.style.borderColor = "blue";
                     anime({
-                        targets: box,
-                        scale: 1.5, // Scale up
+                        targets: btn,
+                        borderWidth: "1vh",
                         easing: 'easeInOutQuad',
                         duration: 800,
                     });
                 } else {
-                    // Reset scaling for inactive boxes
+                    btn.style.borderColor = "#000";
+                    anime({
+                        targets: btn,
+                        borderWidth: "0.1vh",
+                        easing: 'easeInOutQuad',
+                        duration: 800,
+                    });
+                }
+            });
+        
+
+            boxes.forEach((box) => {
+                anime.remove(box);
+                const boxId = box.getAttribute('data-id');
+                if (boxId === id) {
                     anime({
                         targets: box,
-                        scale: 1, // Reset to original size
+                        scale: 1.5,
+                        easing: 'easeInOutQuad',
+                        duration: 800,
+                    });
+                } else {
+                    anime({
+                        targets: box,
+                        scale: 1,
                         easing: 'easeInOutQuad',
                         duration: 800,
                     });
