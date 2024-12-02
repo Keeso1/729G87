@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
 
             buttons.forEach((btn) => {
-                anime.remove(btn);
+            
                 const btnId = btn.getAttribute('data-id');
 
                 if (btnId === id) {
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
 
             boxes.forEach((box) => {
-                anime.remove(box);
                 const boxId = box.getAttribute('data-id');
                 if (boxId === id) {
                     anime({
