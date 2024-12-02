@@ -9,6 +9,25 @@ info_message_template.innerHTML =
 
     .heading{
       background-color: orange;
+      color:white;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    .title{
+    margin-left: 1%;
+    }
+
+    .message{
+    margin: 1%;
+    }
+    
+    .infobox{
+    border: 0.1vw solid black;
+    margin: 4%;
+    font-family: Sans-serif;
     }
   </style>
   <div class="infobox">
