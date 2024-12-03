@@ -17,7 +17,7 @@ class MyComponent extends HTMLElement {
       <div class="wrapper">
         <p>label text</p>
         <div class="toggle" aria-pressed="false">
-        <div class="box">
+          <div class="box">
         </div>
       </div>
 `
