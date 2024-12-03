@@ -9,6 +9,18 @@ class MyComponent extends HTMLElement {
     html {
       box-sizing: border-box;
     }
+    .wrapper{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+
+    }
+    .toggle .box{
+    margin-left: 50%;
+    height: 2vh;
+    width: 2vh;
+    border: 0.1vw solid black;
+    }
     
 
 
