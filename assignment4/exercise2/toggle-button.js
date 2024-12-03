@@ -1,23 +1,24 @@
-const toggle_button_template = document.createElement("template");
-toggle_button_template.innerHTML =
-`
-<div class="wrapper">
-  <p>label text</p>
-  <div class="toggle" aria-pressed="false"></div>
-</div>
-`
 
 class MyComponent extends HTMLElement {
     constructor() {
+      this.toggle_button_template = document.createElement("template");
+      this.toggle_button_template.innerHTML =
+      `
+      <div class="wrapper">
+        <p>label text</p>
+        <div class="toggle" aria-pressed="false"></div>
+      </div>
+`
       super();
       this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(toggle_button_template.content.cloneNode(true));
+      this.shadowRoot.appendChild(this.toggle_button_template.content.cloneNode(true));
 
 
 
     }
     connectedCallback() {
-
+      let wrapperp = this.shadowRoot.querySelector(".wrapper p");
+      wrapperp.innerHTML = document.getAttribute("label").value;
     }
   }
 
