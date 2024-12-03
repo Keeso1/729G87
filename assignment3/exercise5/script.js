@@ -16,6 +16,7 @@ function init (){
               });
             
         })
+        
         element.addEventListener('mouseout', () =>{
             anime({
                 targets: element,
