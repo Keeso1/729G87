@@ -38,25 +38,27 @@ class MyComponent extends HTMLElement {
  
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(this.toggle_button_template.content.cloneNode(true));
-
-
+      this._value = 0;
 
     }
     connectedCallback() {
       let wrapperp = this.shadowRoot.querySelector(".wrapper p");
       wrapperp.innerHTML = this.getAttribute("label");
-      this.setAttribute("value", "0");
+      this.setAttribute("value", this._value);
       
+
       this.shadowRoot.addEventListener("click", ()=>{
         let toggled = this.shadowRoot.querySelector(".toggle");
         let pressed = toggled.getAttribute("aria-pressed") === "true";
 
         toggled.setAttribute("aria-pressed", !pressed);
-        this.setAttribute("value", !pressed ? "1" : "0");
+        this.setAttribute("value", !pressed ? 1 : 0);
+
+        document.querySelector('#buttons').dispatchEvent(new CustomEvent("input", {bubbles: true}));
       })
     }
     get value() {
-      return parseInt(this.getAttribute("value"), 10);
+      return this.getAttribute("value");
     }
   }
 
