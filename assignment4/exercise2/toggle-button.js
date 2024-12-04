@@ -43,6 +43,8 @@ class MyComponent extends HTMLElement {
 
     }
     connectedCallback() {
+     
+
       let wrapperp = this.shadowRoot.querySelector(".wrapper p");
       wrapperp.innerHTML = this.getAttribute("label");
       this.setAttribute("value", "0");
@@ -53,6 +55,10 @@ class MyComponent extends HTMLElement {
 
         toggled.setAttribute("aria-pressed", !pressed);
         this.setAttribute("value", !pressed ? "1" : "0");
+        console.log(value);
+      
+       const customEvent = new customEvent("input", {bubbles: true}) 
+       document.querySelector("#buttons").dispatchEvent(customEvent)
       })
     }
     get value() {
