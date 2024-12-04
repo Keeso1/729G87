@@ -56,7 +56,8 @@ class MyComponent extends HTMLElement {
         toggled.setAttribute("aria-pressed", !pressed);
         this.setAttribute("value", !pressed ? 1 : 0);
 
-        document.querySelector('#buttons').dispatchEvent(new CustomEvent("input", {bubbles: true}));
+        console.log(this.getAttribute("value"))
+        document.querySelector('#buttons').dispatchEvent(new CustomEvent("input", {bubbles: true})); //varför gör man detta?
       })
     }
     get value() {
