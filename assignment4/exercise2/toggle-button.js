@@ -15,11 +15,15 @@ class MyComponent extends HTMLElement {
     align-items:center;
 
     }
-    .toggle .box{
-    margin-left: 50%;
+
+    .toggle{
     height: 2vh;
     width: 2vh;
-    border: 0.1vw solid black;
+    border: 0.1vh solid black;
+    }
+
+    [role="button"][aria-pressed="true"]{
+    background: green;
     }
     
 
@@ -28,9 +32,7 @@ class MyComponent extends HTMLElement {
 
       <div class="wrapper">
         <p>label text</p>
-        <div class="toggle" aria-pressed="false">
-          <div class="box">
-        </div>
+        <div class="toggle" role="button" aria-pressed="false"></div>
       </div>
 `
  
@@ -43,6 +45,18 @@ class MyComponent extends HTMLElement {
     connectedCallback() {
       let wrapperp = this.shadowRoot.querySelector(".wrapper p");
       wrapperp.innerHTML = this.getAttribute("label");
+      this.setAttribute("value", "0");
+      
+      this.shadowRoot.addEventListener("click", ()=>{
+        let toggled = this.shadowRoot.querySelector(".toggle");
+        let pressed = toggled.getAttribute("aria-pressed") === "true";
+
+        toggled.setAttribute("aria-pressed", !pressed);
+        this.setAttribute("value", !pressed ? "1" : "0");
+      })
+    }
+    get value() {
+      return parseInt(this.getAttribute("value"), 10);
     }
   }
 
