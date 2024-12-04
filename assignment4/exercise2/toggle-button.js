@@ -47,7 +47,7 @@ class MyComponent extends HTMLElement {
       let wrapperp = this.shadowRoot.querySelector(".wrapper p");
       wrapperp.innerHTML = this.getAttribute("label");
       this.setAttribute("value", this._value);
-      
+    
 
       this.shadowRoot.addEventListener("click", ()=>{
         let toggled = this.shadowRoot.querySelector(".toggle");
