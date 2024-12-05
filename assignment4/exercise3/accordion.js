@@ -56,6 +56,7 @@ class MyComponent extends HTMLElement {
       text.textContent = contentCollection[index].textContent;
 
       text.style.opacity="0";
+      text.style.border="0.1vh solid rgba(0, 0, 0, 0.3)"
       //text.style.translateY="-20";
       
       button.addEventListener('click', () =>{
