@@ -65,8 +65,23 @@ class MyComponent extends HTMLElement {
           button.setAttribute("aria-expanded", !expanded);
           text.hidden = !text.hidden;
           if (expanded){
+            anime({
+              targets: text,
+              right: ['0px', '500px'],
+              easing: 'easeInOutQuad',
+      
+              loop: false
+              });
+              
 
           } else{
+            anime({
+            targets: text,
+            right: ['0px', '500px'],
+            easing: 'easeInOutQuad',
+          
+            loop: false
+            });
             
           }
         })
