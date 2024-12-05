@@ -24,14 +24,6 @@ class MyComponent extends HTMLElement {
        <button aria-expanded="false">Accordion 1 title</button>
        <div role="region" hidden=""><p>Content for Accordion 1</p></div>
     </li>
-    <li>
-      <button aria-expanded="false">Accordion 2 title</button>
-      <div role="region" hidden=""><p>Content for Accordion 2</p></div>
-    </li>
-    <li>
-      <button aria-expanded="false">Accordion 3 title</button>
-      <div role="region" hidden=""><p>Content for Accordion 3</p></div>
-    </li>
   </ul>
 </div>
 
@@ -41,10 +33,13 @@ class MyComponent extends HTMLElement {
 
     }
     connectedCallback() {
-        let accordionButtonlist = this.shadowRoot.querySelectorAll(".accordion button");
-        let accordionHeaderlist = document.querySelectorAll('h2');
-        console.log(accordionButtonlist);
-        console.log(accordionHeaderlist);
+        let accordionHeadercollection = Array.from(this.getElementsByTagName('h2'));
+        console.log(accordionHeadercollection);
+
+        accordionHeadercollection.forEach(element => {
+          this.shadowRoot.querySelector()
+          console.log(element.textContent); // Loop over and log each element's text
+      });
       
         }
         
