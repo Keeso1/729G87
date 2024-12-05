@@ -41,12 +41,18 @@ class MyComponent extends HTMLElement {
 
     }
     connectedCallback() {
-        let accordionheaderlist = this.shadowRoot.querySelectorAll(".accordion button");
-        accordionheaderlist.innerHTML = this.getAttribute("h2");
+        let accordionButtonlist = this.shadowRoot.querySelectorAll(".accordion button");
+        let accordionHeaderlist = document.querySelectorAll('h2');
+        console.log(accordionButtonlist);
+        console.log(accordionHeaderlist);
+      
+        }
+        
+
 
       
-    }
+    
   
   }
 
-  customElements.define('accordion_component', MyComponent);
+  customElements.define('accordion-component', MyComponent);
