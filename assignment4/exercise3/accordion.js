@@ -37,6 +37,7 @@ class MyComponent extends HTMLElement {
         console.log(accordionHeadercollection);
 
         accordionHeadercollection.forEach(element => {
+          this.createElement
           this.shadowRoot.querySelector()
           console.log(element.textContent); // Loop over and log each element's text
       });
