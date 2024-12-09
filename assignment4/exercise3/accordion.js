@@ -52,7 +52,7 @@ class MyComponent extends HTMLElement {
     this.shadowRoot.appendChild(this.accordion_component_template.content.cloneNode(true));
     this.accordion = this.shadowRoot.querySelector('.accordion ul');
   }
-  
+
   connectedCallback() {
     let HeaderCollection = Array.from(this.getElementsByTagName('h2'));
     let contentCollection = Array.from(this.getElementsByTagName('div'));
@@ -90,7 +90,6 @@ class MyComponent extends HTMLElement {
           anime({
             targets: text,
             opacity: 0,
-            zIndex: 0,
             duration: 500,
             easing: 'easeInOutQuad',
             
@@ -104,7 +103,6 @@ class MyComponent extends HTMLElement {
           anime({
             targets: text,
             opacity: 1,
-            zIndex: 0,
             duration: 500,
             easing: 'easeInOutQuad',
             border:"0.1vh solid rgba(0, 0, 0, 0.3)"
