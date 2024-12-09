@@ -25,9 +25,6 @@ class MyComponent extends HTMLElement {
     [role="button"][aria-pressed="true"]{
     background: green;
     }
-    
-
-
   </style>
 
       <div class="wrapper">
@@ -42,13 +39,11 @@ class MyComponent extends HTMLElement {
 
     }
     connectedCallback() {
-     
-
+  
       let wrapperp = this.shadowRoot.querySelector(".wrapper p");
       wrapperp.innerHTML = this.getAttribute("label");
       this.setAttribute("value", this._value);
     
-
       this.shadowRoot.addEventListener("click", ()=>{
         let toggled = this.shadowRoot.querySelector(".toggle");
         let pressed = toggled.getAttribute("aria-pressed") === "true";

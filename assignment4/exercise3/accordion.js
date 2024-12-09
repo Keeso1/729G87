@@ -60,8 +60,6 @@ class MyComponent extends HTMLElement {
     let HeaderCollection = Array.from(this.getElementsByTagName('h2'));
     let contentCollection = Array.from(this.getElementsByTagName('div'));
    
-    
-
     HeaderCollection.forEach((heading, index) => {
       let paragraphArray = Array.from(contentCollection[index].children);
       let listItem = document.createElement("li");
@@ -85,11 +83,8 @@ class MyComponent extends HTMLElement {
       this.getElementsByTagName("h2")[0].remove();
       this.getElementsByTagName("div")[0].remove();
 
-
       text.style.opacity="0";
     
-
-      
       button.addEventListener('click', () =>{
         let expanded = button.getAttribute("aria-expanded") === "true";
         button.setAttribute("aria-expanded", !expanded);
@@ -99,7 +94,6 @@ class MyComponent extends HTMLElement {
             targets: text,
             opacity: 0,
             zIndex: 0,
-            //translateY: -20,
             duration: 500,
             easing: 'easeInOutQuad',
             
@@ -114,7 +108,6 @@ class MyComponent extends HTMLElement {
             targets: text,
             opacity: 1,
             zIndex: 0,
-            //translateY: 0,
             duration: 500,
             easing: 'easeInOutQuad',
             border:"0.1vh solid rgba(0, 0, 0, 0.3)"
@@ -123,12 +116,6 @@ class MyComponent extends HTMLElement {
       });
     });
   }
-        
-
-
-      
-    
-  
 }
 
 customElements.define('accordion-component', MyComponent);

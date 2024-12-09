@@ -50,10 +50,8 @@ class MyComponent extends HTMLElement {
       super();
       this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(info_message_template.content.cloneNode(true));
-
-
-
     }
+    
     connectedCallback() {
 
     }
