@@ -9,7 +9,6 @@ class MyComponent extends HTMLElement {
         box-sizing: border-box;
       }
      
-
       .accordion button {
         display: flex;
         align-items: center;
@@ -42,12 +41,9 @@ class MyComponent extends HTMLElement {
       margin: 0; 
       padding: 0;
       }
-
-
     </style>
    
         <div class="accordion">
-    
       <ul>
       </ul>
     </div>
@@ -56,6 +52,7 @@ class MyComponent extends HTMLElement {
     this.shadowRoot.appendChild(this.accordion_component_template.content.cloneNode(true));
     this.accordion = this.shadowRoot.querySelector('.accordion ul');
   }
+  
   connectedCallback() {
     let HeaderCollection = Array.from(this.getElementsByTagName('h2'));
     let contentCollection = Array.from(this.getElementsByTagName('div'));
