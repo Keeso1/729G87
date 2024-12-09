@@ -14,11 +14,13 @@ class MyComponent extends HTMLElement {
         display: flex;
         align-items: center;
         margin-bottom: 0.1vh;
+        text-align: left;
         background-color: rgb(120, 132, 148);
         color:white;
         height: 5vh;
         width: 50vh;
-       
+        border: 0;
+       font-size: 2vh;
       }
 
       .accordion button::before {
@@ -29,9 +31,12 @@ class MyComponent extends HTMLElement {
       .accordion button[aria-expanded="true"]::before {
         content: "▼︎ ";
       }
+
       div {
-      width: 50vh;
+      width: 49.7vh;
+      font-size: 1.6vh;
       }
+
       .accordion ul {
       list-style: none; 
       margin: 0; 
@@ -76,12 +81,14 @@ class MyComponent extends HTMLElement {
       })
 
       button.innerHTML = heading.textContent;
-      
-  
+
+      this.getElementsByTagName("h2")[0].remove();
+      this.getElementsByTagName("div")[0].remove();
+
 
       text.style.opacity="0";
-      text.style.border="0.1vh solid rgba(0, 0, 0, 0.3)"
-      //text.style.translateY="-20";
+    
+
       
       button.addEventListener('click', () =>{
         let expanded = button.getAttribute("aria-expanded") === "true";
@@ -95,7 +102,9 @@ class MyComponent extends HTMLElement {
             //translateY: -20,
             duration: 500,
             easing: 'easeInOutQuad',
+            
             complete: () => {
+             
               text.hidden = true;
             }
           });
@@ -107,13 +116,12 @@ class MyComponent extends HTMLElement {
             zIndex: 0,
             //translateY: 0,
             duration: 500,
-            easing: 'easeInOutQuad'
+            easing: 'easeInOutQuad',
+            border:"0.1vh solid rgba(0, 0, 0, 0.3)"
           });
         }
       });
     });
-    
-    
   }
         
 
