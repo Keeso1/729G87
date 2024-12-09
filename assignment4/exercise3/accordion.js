@@ -8,25 +8,41 @@ class MyComponent extends HTMLElement {
       html {
         box-sizing: border-box;
       }
+     
 
       .accordion button {
         display: flex;
         align-items: center;
-        z-index: 1;
+        margin-bottom: 0.1vh;
+        background-color: rgb(120, 132, 148);
+        color:white;
+        height: 5vh;
+        width: 50vh;
+       
       }
 
       .accordion button::before {
         content: "▶︎ ";
+        margin-right: 1vh;
       }
 
       .accordion button[aria-expanded="true"]::before {
         content: "▼︎ ";
       }
-      
+      div {
+      width: 50vh;
+      }
+      .accordion ul {
+      list-style: none; 
+      margin: 0; 
+      padding: 0;
+      }
 
 
     </style>
-    <div class="accordion">
+   
+        <div class="accordion">
+    
       <ul>
       </ul>
     </div>
@@ -38,8 +54,11 @@ class MyComponent extends HTMLElement {
   connectedCallback() {
     let HeaderCollection = Array.from(this.getElementsByTagName('h2'));
     let contentCollection = Array.from(this.getElementsByTagName('div'));
+   
+    
 
     HeaderCollection.forEach((heading, index) => {
+      let paragraphArray = Array.from(contentCollection[index].children);
       let listItem = document.createElement("li");
       let text = document.createElement("div");
       let button = document.createElement("button");
@@ -52,8 +71,13 @@ class MyComponent extends HTMLElement {
       listItem.appendChild(button);
       listItem.appendChild(text);
 
+      paragraphArray.forEach((element)=>{
+        text.appendChild(element);
+      })
+
       button.innerHTML = heading.textContent;
-      text.textContent = contentCollection[index].textContent;
+      
+  
 
       text.style.opacity="0";
       text.style.border="0.1vh solid rgba(0, 0, 0, 0.3)"
@@ -61,7 +85,6 @@ class MyComponent extends HTMLElement {
       
       button.addEventListener('click', () =>{
         let expanded = button.getAttribute("aria-expanded") === "true";
-        console.log(expanded);
         button.setAttribute("aria-expanded", !expanded);
 
         if (expanded) {
