@@ -12,6 +12,9 @@ function init(){
     const newParagraphBtn = document.querySelector(".newParagraph-btn");
     const content = document.querySelector(".content");
 
+    let font = styleSelect.value;
+    styleOutput.style.fontFamily = font;
+
     changeStyleBtn.addEventListener("click", () => {
         const output = styleSelect.value;
         styleOutput.style.fontFamily = output;
