@@ -6,10 +6,10 @@
   box-sizing: border-box;
 }
 
-/* Frame */
 
-/* Component */
-.component-2-2 {
+
+
+.card {
   height: 700px;
   width: 1080px;
   display: flex;
@@ -30,9 +30,9 @@
 }
 
 /* Text Styling */
-.text-3{
-  margin-top: 55px;
-  margin-left: 50px;
+.cardheader{
+  margin-top: 10%;
+  margin-left: 10%;
   width:85%;
   height:12.3%;
   font-size: 48px;
@@ -41,9 +41,9 @@
   color: rgba(94, 246, 255, 1);
 }
 
-.text-4 {
-  margin-top: 35px;
-  margin-left: 50px;
+.cardparagraph {
+  margin-top: 5%;
+  margin-left: 10%;
   width: 85%;
   height: 60.86%;
   font-size: 24px;
@@ -53,15 +53,15 @@
 }
 
 /* Images */
-.image-5 {
+.cardimage {
   border: 1px solid rgba(94, 246, 255, 1);
   border-radius: 20px;
-  width: auto;
+  width: 371px;
   max-width: 100%;
-  height: auto;
+  height: 352px;
 }
 
-.rectangle-113-6 {
+.cardbackground {
   position: absolute;
   
 }
