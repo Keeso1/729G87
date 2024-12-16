@@ -1,0 +1,67 @@
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Frame */
+
+/* Component */
+.component-2-2 {
+  height: 700px;
+  width: 1080px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.left{
+  height:100%;
+  width: 50%;
+}
+.right{
+  height:100%;
+  width: 50%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text Styling */
+.text-3{
+  margin-top: 55px;
+  margin-left: 50px;
+  width:85%;
+  height:12.3%;
+  font-size: 48px;
+  font-weight:normal;
+  text-align: left;
+  color: rgba(94, 246, 255, 1);
+}
+
+.text-4 {
+  margin-top: 35px;
+  margin-left: 50px;
+  width: 85%;
+  height: 60.86%;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: left;
+  color: rgba(94, 246, 255, 1);
+}
+
+/* Images */
+.image-5 {
+  border: 1px solid rgba(94, 246, 255, 1);
+  border-radius: 20px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.rectangle-113-6 {
+  position: absolute;
+  
+}
