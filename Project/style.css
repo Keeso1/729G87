@@ -23,6 +23,20 @@ header{
 }
 
 .cards-wrapper{
+    display: flex;
+    position: relative;
+    margin: 0 auto;
     min-height: 100vh;
-    background-color: var(--secondary-color);
+    max-width:  80rem;
+    background-color: var(--primary-color);
+}
+.slider{
+    display:flex;
+    aspect-ratio: 16/9;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    flex: 1 0 100%;
+    scroll-snap-align:start;
+    object-fit:cover;
 }

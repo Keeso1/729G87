@@ -10,9 +10,12 @@ class MyComponent extends HTMLElement {
   box-sizing: border-box;
 }
     .card {
+    flex: 1 0 100%;
+    scroll-snap-align:start;
+    object-fit:cover;
     position:relative;
     min-height: 43.75rem;
-    max-width: 67.5rem;
+    max-width: 80rem;
     display: grid;
     grid-template-columns: auto 26.25rem auto auto;
     grid-template-rows: auto auto auto auto;
