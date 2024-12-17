@@ -13,28 +13,23 @@
   min-height: 43.75rem;
   max-width: 67.5rem;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto 26.25rem auto auto;
   grid-template-rows: auto auto auto auto;
   column-gap: 2rem;
   font-family: 'Rajdhani';
-  
- 
-
 }
 
-
-
-/* Text Styling */
 .cardheader{
   grid-row-start:2;
   grid-column-start: 2;
   grid-row-end: 2;
   grid-column-end: 2;
   font-size: 3rem;
-  font-weight:normal;
+  font-weight:bold;
   text-align: left;
   color: rgba(94, 246, 255, 1);
 }
+
 
 .cardparagraph {
   grid-row-start:3;
@@ -42,10 +37,11 @@
   grid-row-end: 3;
   grid-column-end: 2;
   font-size: 1.5rem;
-  font-weight: normal;
+  font-weight: bold;
   text-align: left;
   color: rgba(94, 246, 255, 1);
 }
+
 
 /* Images */
 .cardimage {

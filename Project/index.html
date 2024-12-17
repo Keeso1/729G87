@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <script src="three.js"></script>
-    <script src="cards.js"></script>
+    <script src="cards.js"defer></script>
     <title>Home</title>
   </head>
   <body>
@@ -22,16 +23,35 @@
     </div>
     <div class="cards-wrapper">
       <div class="slider">
-        <card>
-          <h1>titel</h1>
-          <p>text text text text text text text text text text</p>
-          <img src="images/jungleblast.webp" class="cardimage" alt="Jungle Blast Image" />
-        </card>
-        <card>
-          <h1>titel</h1>
-          <p>text text text text text text text text text text</p>
-          <img src="images/jungleblast.webp" class="cardimage" alt="Jungle Blast Image" />
-        </card>
+        <card-component>
+          <h1>Jungleblast</h1>
+          <p> Jungle Blast is a bold and vibrant soda that takes your taste buds on an exotic adventure. 
+            Bursting with tropical flavors, it combines the tangy zing of passion fruit and pineapple 
+            with a refreshing hint of lime, all balanced by a subtle sweetness that lingers just long enough 
+            to make you crave the next sip.</p>
+          <img src="images/jungleblast.webp" alt="Jungle Blast Image" />
+        </card-component>
+        <card-component>
+          <h1>Nutrition</h1>
+          <p>Serving Size: 12 fl oz (355 mL) <br />
+            Calories: 140<br />
+            Total Fat: 0g<br />
+            Saturated Fat: 0g<br />
+            Trans Fat: 0g<br />
+            Cholesterol: 0mg<br />
+            Sodium: 30mg<br />
+            Total Carbohydrates: 36g<br />
+            Dietary Fiber: 0g<br />
+            Total Sugars: 35g<br />
+            Includes 35g Added Sugars (70% DV)<br />
+            Protein: 0g</p>
+          <img src="images/nutrition.webp" alt="Jungle Blast Image" />
+        </card-component>
+        <card-component>
+          <h1>Sustainability</h1>
+          <p> Jungle Blast is more than a soda—it’s a commitment to sustainability. Packaged in 100% recyclable materials and made with ethically sourced tropical ingredients, it supports small farmers while minimizing its carbon footprint. Powered by renewable energy and using water-efficient production, Jungle Blast achieves carbon neutrality and protects freshwater ecosystems. The brand also invests in reforestation projects and empowers indigenous communities. </p>
+          <img src="images/sustainability.webp" alt="Jungle Blast Image" />
+        </card-component>
       </div>
     </div>
   </body>
