@@ -1,0 +1,28 @@
+:root{
+    --primary-color: hsl(291,99%,9%);
+    --secondary-color: hsl(183, 63%, 100%);
+    --tertiary-color: hsl(46, 0, 42);
+}
+
+body{
+    margin: 0;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+header{
+    all: unset;
+    min-height: 40vh;
+    background-color: var(--tertiary-color);
+    z-index: 1;
+}
+
+.three-wrapper{
+    min-height: 100vh;
+    z-index: 0;
+}
+
+.cards-wrapper{
+    min-height: 100vh;
+    background-color: var(--secondary-color);
+}
