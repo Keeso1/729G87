@@ -8,7 +8,9 @@ body{
     margin: 0;
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    
 }
+
 
 header{
     all: unset;
@@ -32,11 +34,14 @@ header{
 }
 .slider{
     display:flex;
+    width:1077px;
     aspect-ratio: 16/9;
-    overflow-x: hidden;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    flex: 1 0 100%;
     scroll-snap-align:start;
-    object-fit:cover;
+    
+}
+.slider::-webkit-scrollbar{
+    display:none;
 }

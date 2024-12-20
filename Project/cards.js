@@ -10,13 +10,12 @@ class MyComponent extends HTMLElement {
   box-sizing: border-box;
 }
     .card {
-    flex: 1 0 100%;
-    scroll-snap-align:start;
-    object-fit:cover;
+    z-index: 1;
     position:relative;
     min-height: 43.75rem;
-    max-width: 80rem;
+    width:1077px;
     display: grid;
+    justify-content:center;
     grid-template-columns: auto 26.25rem auto auto;
     grid-template-rows: auto auto auto auto;
     column-gap: 2rem;
@@ -62,6 +61,7 @@ class MyComponent extends HTMLElement {
   .cardbackground {
   
     position: absolute;
+    z-index: 0;
     inset:0;
   
   }
@@ -107,8 +107,19 @@ class MyComponent extends HTMLElement {
       this.querySelector('h1').remove();
       this.querySelector('p').remove();
       this.querySelector('img').remove();
+
+      document.querySelector('slider').onscroll = cardtrigger(this.card);
+
+
+      function cardtrigger(card) {
+        anime({
+          targets: card,
+          
+        });
+      }
+      }
     }
-  }
+  
   
   customElements.define('card-component', MyComponent);
   
