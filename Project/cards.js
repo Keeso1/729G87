@@ -24,6 +24,7 @@ class MyComponent extends HTMLElement {
     font-family: 'Rajdhani';
     overflow: hidden;
     background-image: url("images/rectangle-113-6.svg");
+    background-repeat:no-repeat;
     border-right: 8px solid rgba(94, 246, 255, 0.5);
     width:0px;
     margin-right: 1077px;
