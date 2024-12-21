@@ -83,13 +83,13 @@ class MyComponent extends HTMLElement {
 }
      @keyframes flicker {
     0%, 100% {
-        border-color: rgba(94, 246, 255, 0.5); /* Initial border color */
+        border-color: rgba(94, 246, 255, 0.5); 
     }
     50% {
-        border-color: rgba(94, 246, 255, 1); /* Brighter color at mid-point */
+        border-color: rgba(94, 246, 255, 1);
     }
     25%, 75% {
-        border-color: rgba(94, 246, 255, 0.0); /* Flicker off */
+        border-color: rgba(94, 246, 255, 0.0); 
     }
 }
     
