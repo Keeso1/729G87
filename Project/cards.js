@@ -9,17 +9,7 @@ class MyComponent extends HTMLElement {
   padding: 0;
   box-sizing: border-box;
 }
-  @keyframes flicker {
-    0%, 100% {
-        border-color: rgba(94, 246, 255, 0.5); /* Initial border color */
-    }
-    50% {
-        border-color: rgba(94, 246, 255, 1); /* Brighter color at mid-point */
-    }
-    25%, 75% {
-        border-color: rgba(94, 246, 255, 0.0); /* Flicker off */
-    }
-}
+ 
 
   .card {
     z-index: 1;
@@ -44,8 +34,7 @@ class MyComponent extends HTMLElement {
 .card.reveal{
     width:1077px;
     clip-path: inset(0); 
-   border-right: 8px solid rgba(94, 246, 255, 0);
-      margin:0px;
+    margin:0px;
 }
 
   .cardheader{
@@ -91,6 +80,17 @@ class MyComponent extends HTMLElement {
   .scaled {
     transform: scale(1.1); 
     
+}
+     @keyframes flicker {
+    0%, 100% {
+        border-color: rgba(94, 246, 255, 0.5); /* Initial border color */
+    }
+    50% {
+        border-color: rgba(94, 246, 255, 1); /* Brighter color at mid-point */
+    }
+    25%, 75% {
+        border-color: rgba(94, 246, 255, 0.0); /* Flicker off */
+    }
 }
     
 
@@ -139,6 +139,7 @@ class MyComponent extends HTMLElement {
     }, 1000);
 
     setTimeout(() => {
+      this.card.style.borderRight="none"
     this.card.style.animation="none";
   }, 2000);
     
