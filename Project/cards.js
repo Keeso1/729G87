@@ -15,7 +15,6 @@ class MyComponent extends HTMLElement {
     z-index: 1;
     position: relative;
     min-height: 43.75rem;
-    width: 1077px;
     display: grid;
     justify-content: center;
     grid-template-columns: auto 26.25rem auto auto;
@@ -97,7 +96,6 @@ class MyComponent extends HTMLElement {
 
 
     </style>
-
         <div class="card">
         </div>
       `
