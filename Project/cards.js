@@ -9,19 +9,45 @@ class MyComponent extends HTMLElement {
   padding: 0;
   box-sizing: border-box;
 }
-    .card {
+  @keyframes flicker {
+    0%, 100% {
+        border-color: rgba(94, 246, 255, 0.5); /* Initial border color */
+    }
+    50% {
+        border-color: rgba(94, 246, 255, 1); /* Brighter color at mid-point */
+    }
+    25%, 75% {
+        border-color: rgba(94, 246, 255, 0.0); /* Flicker off */
+    }
+}
+
+  .card {
     z-index: 1;
-    position:relative;
+    position: relative;
     min-height: 43.75rem;
-    width:1077px;
+    width: 1077px;
     display: grid;
-    justify-content:center;
+    justify-content: center;
     grid-template-columns: auto 26.25rem auto auto;
     grid-template-rows: auto auto auto auto;
     column-gap: 2rem;
     font-family: 'Rajdhani';
-  }
-  
+    overflow: hidden;
+    background-image: url("images/rectangle-113-6.svg");
+    border-right: 8px solid rgba(94, 246, 255, 0.5);
+    width:0px;
+    margin-right: 1077px;
+    transition: 1s ease-in;
+    animation:flicker 0.1s infinite;
+}
+
+.card.reveal{
+    width:1077px;
+    clip-path: inset(0); 
+   border-right: 8px solid rgba(94, 246, 255, 0);
+      margin:0px;
+}
+
   .cardheader{
     grid-row-start:2;
     grid-column-start: 2;
@@ -31,6 +57,7 @@ class MyComponent extends HTMLElement {
     font-weight:bold;
     text-align: left;
     color: rgba(94, 246, 255, 1);
+    filter:drop-shadow(0 0 5px rgba(94, 246, 255, 0.7));
   }
   
   
@@ -43,7 +70,9 @@ class MyComponent extends HTMLElement {
     font-weight: bold;
     text-align: left;
     color: rgba(94, 246, 255, 1);
+    filter:drop-shadow(0 0 5px rgba(94, 246, 255, 0.7));
   }
+  
   
   
  
@@ -56,19 +85,19 @@ class MyComponent extends HTMLElement {
     border-radius: 1.25rem;
     width: 23.125rem;
     height: 21.875rem;
+    filter:drop-shadow(0 0 5px rgba(94, 246, 255, 1));
   }
   
-  .cardbackground {
-  
-    position: absolute;
-    z-index: 0;
-    inset:0;
-  
-  }
+  .scaled {
+    transform: scale(1.1); 
+    
+}
+    
+
+
     </style>
+
         <div class="card">
-        <img src="images/rectangle-113-6.svg" class="cardbackground" alt="Decorative Rectangle" />
-        
         </div>
       `
       this.attachShadow({ mode: 'open' });
@@ -77,11 +106,14 @@ class MyComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        
 
       let origionalHeader = this.querySelector('h1');
       let origionalText = this.querySelector('p');
       let showcaseimage = this.querySelector('img');
+
+      this.querySelector('h1').remove();
+      this.querySelector('p').remove();
+      this.querySelector('img').remove();
   
     
       let newheader = document.createElement("h1");
@@ -101,24 +133,51 @@ class MyComponent extends HTMLElement {
       this.card.appendChild(newheader);
       this.card.appendChild(newtext);
       this.card.appendChild(newshowcaseimage);
-  
+      
+      setTimeout(() => {
+        this.card.classList.add('reveal');
+    }, 1000);
 
+    setTimeout(() => {
+    this.card.style.animation="none";
+  }, 2000);
+    
+      const slider = document.querySelector(".slider");
 
-      this.querySelector('h1').remove();
-      this.querySelector('p').remove();
-      this.querySelector('img').remove();
+        if (slider) {
+            let isScrolling;
 
-      document.querySelector('slider').onscroll = cardtrigger(this.card);
+            const scaleSlider = () =>{
+              slider.classList.add("scaled");
+            }
 
+            const scaleCard = () => {
+                this.card.classList.add("scaled");
+            };
 
-      function cardtrigger(card) {
-        anime({
-          targets: card,
-          
-        });
-      }
+            const resetCard = () => {
+                this.card.classList.remove("scaled");
+            };
+
+            const resetSlider = () => {
+              slider.classList.remove("scaled");
+            }
+
+            slider.addEventListener("scroll", () => {
+                scaleSlider();
+                scaleCard();
+                
+
+                clearTimeout(isScrolling);
+
+                isScrolling = setTimeout(() => {
+                    resetCard();
+                    resetSlider();
+                }, 0);
+            });
       }
     }
+  }
   
   
   customElements.define('card-component', MyComponent);

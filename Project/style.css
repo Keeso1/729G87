@@ -1,3 +1,5 @@
+
+
 :root{
     --primary-color: hsl(291,99%,9%);
     --secondary-color: hsl(183, 63%, 100%);
@@ -34,14 +36,14 @@ header{
 }
 .slider{
     display:flex;
+    align-items: center;
+    border-radius: 5px;
+    gap: 200px;
     width:1077px;
-    aspect-ratio: 16/9;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scroll-snap-align:start;
     
 }
+
 .slider::-webkit-scrollbar{
     display:none;
 }
