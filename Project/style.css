@@ -35,6 +35,7 @@ header > *{
 .three-wrapper{
     position: relative;
     min-height: 100svh;
+    margin: 0;
     display: flex;
 }
 
