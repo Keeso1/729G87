@@ -1,7 +1,8 @@
 :root{
     --primary-color: hsl(291,99%,9%);
     --secondary-color: hsl(183, 63%, 100%);
-    --tertiary-color: hsl(46, 0, 42);
+    --tertiary-color: hsl(294.19,15.42%,39.41%);
+    --accent-color: #5EF6FF;
 }
 
 body{
@@ -9,20 +10,44 @@ body{
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
-
+.wrap{
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
 header{
-    all: unset;
-    min-height: 40vh;
+    min-height: 20svh;
+    max-width: 100svw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--tertiary-color);
-    z-index: 1;
+    color: var(--accent-color);
+}
+
+header > *{
+    margin-inline:1rem;
+    width: fit-content;
+    max-width: 20%;
+    fill: var(--secondary-color);
 }
 
 .three-wrapper{
-    min-height: 100vh;
-    z-index: 0;
+    position: relative;
+    min-height: 100svh;
+    display: flex;
 }
 
 .cards-wrapper{
     min-height: 100vh;
+    position: relative;
     background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    max-width: 50%;
+    display: block;
+    margin-inline: auto;
 }
