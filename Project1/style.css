@@ -1,5 +1,5 @@
 
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -10,55 +10,49 @@
 
 
 .card {
-  height: 700px;
-  width: 1080px;
-  display: flex;
-  flex-direction: row;
-
+  min-height: 43.75rem;
+  max-width: 67.5rem;
+  display: grid;
+  grid-template-columns: auto 26.25rem auto auto;
+  grid-template-rows: auto auto auto auto;
+  column-gap: 2rem;
+  font-family: 'Rajdhani';
 }
 
-.left{
-  height:100%;
-  width: 50%;
-}
-.right{
-  height:100%;
-  width: 50%;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Text Styling */
 .cardheader{
-  margin-top: 10%;
-  margin-left: 10%;
-  width:85%;
-  height:12.3%;
-  font-size: 48px;
-  font-weight:normal;
+  grid-row-start:2;
+  grid-column-start: 2;
+  grid-row-end: 2;
+  grid-column-end: 2;
+  font-size: 3rem;
+  font-weight:bold;
   text-align: left;
   color: rgba(94, 246, 255, 1);
 }
+
 
 .cardparagraph {
-  margin-top: 5%;
-  margin-left: 10%;
-  width: 85%;
-  height: 60.86%;
-  font-size: 24px;
-  font-weight: normal;
+  grid-row-start:3;
+  grid-column-start: 2;
+  grid-row-end: 3;
+  grid-column-end: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
   text-align: left;
   color: rgba(94, 246, 255, 1);
 }
+
 
 /* Images */
 .cardimage {
+  grid-row-start:3;
+  grid-column-start: 3;
+  grid-row-end: 3;
+  grid-column-end: 3;
   border: 1px solid rgba(94, 246, 255, 1);
-  border-radius: 20px;
-  width: 371px;
-  max-width: 100%;
-  height: 352px;
+  border-radius: 1.25rem;
+  width: 23.125rem;
+  height: 21.875rem;
 }
 
 .cardbackground {
