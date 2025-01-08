@@ -50,7 +50,11 @@ class MyComponent extends HTMLElement {
 
         toggled.setAttribute("aria-pressed", !pressed);
         this.setAttribute("value", !pressed ? 1 : 0);
+<<<<<<< HEAD
         this.dispatchEvent(new CustomEvent("input"));
+=======
+        this.dispatchEvent(new CustomEvent("input", {bubbles: true}));
+>>>>>>> 1df73b1277659a9c73107e50d26183ae900bb927
       })
     }
 
