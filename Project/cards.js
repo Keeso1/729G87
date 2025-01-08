@@ -27,7 +27,7 @@ class MyComponent extends HTMLElement {
     border-right: 8px solid rgba(94, 246, 255, 0.5);
     width:0px;
     margin-right: 1077px;
-    transition: 1s ease-in;
+    transition: 1.5s ease-in;
     animation:flicker 0.1s infinite;
 }
 
@@ -135,12 +135,12 @@ class MyComponent extends HTMLElement {
       
       setTimeout(() => {
         this.card.classList.add('reveal');
-    }, 1000);
+    }, 1500);
 
     setTimeout(() => {
       this.card.style.borderRight="none"
     this.card.style.animation="none";
-  }, 2000);
+  }, 3000);
     
       const slider = document.querySelector(".slider");
 
