@@ -53,6 +53,7 @@ class MyComponent extends HTMLElement {
         document.querySelector('#buttons').dispatchEvent(new CustomEvent("input", {bubbles: true}));
       })
     }
+
     get value() {
       return this.getAttribute("value");
     }
