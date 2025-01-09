@@ -102,6 +102,12 @@ class MyCan extends HTMLElement {
         if (this.renderobject === "soda_can") {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
           }
+
+        window.addEventListener("resize", function () {
+            this.camera.aspect = window.innerWidth / window.innerHeight;
+            this.camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        });
 	}
 }
 
