@@ -13,11 +13,16 @@ class MyCan extends HTMLElement {
         CanTemplate.innerHTML =
         `
         <style>
+            :host {
+                display: block;
+                width: 100%;
+            }
+
             * {
                 box-sizing: border-box;
             }
                 
-            canvas {
+            div {
                 width: 100%;
                 min-height: 100%;
                 border: 3px solid #73AD21;
@@ -32,14 +37,12 @@ class MyCan extends HTMLElement {
 
         </style>
         
-        <canvas id="bg"></canvas>
+        <div id="bg"></div>
         `
         this.attachShadow({ mode: 'open' });
+        this.host = this.shadowRoot.host;
         this.shadowRoot.appendChild(CanTemplate.content.cloneNode(true));
-        this.canvas = this.shadowRoot.querySelector("#bg");
-
-        // const controls = new OrbitControls( camera, renderer.domElement );
-        // const loader = new GLTFLoader();
+        this.container = this.shadowRoot.querySelector("#bg");
     }
     
     connectedCallback() {
@@ -50,19 +53,55 @@ class MyCan extends HTMLElement {
     init() {
         this.scene = new THREE.Scene();
 
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.renderer = new THREE.WebGLRenderer({
-            canvas: this.canvas
-        });
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.camera.position.setZ(30);
+        this.camera = new THREE.PerspectiveCamera(50, this.host.offsetWidth / this.host.offsetWidth, 0.1, 100);
+        console.log( "camera:", this.host.offsetWidth, this.host.offsetHeight );
 
-        this.geometry = new THREE.BoxGeometry(1, 1, 1);
-		this.material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-		this.cube = new THREE.Mesh(this.geometry, this.material);
-		this.scene.add( this.cube );
+        this.object;
 
+        this.controls;
+
+        this.renderobject = "can";
+
+        this.Loader = new GLTFLoader();
+
+        this.Loader.load(
+            "models/${soda_can}/scene.gltf",
+
+            function(gltf){
+                object = gltf.this.scene;
+                this.scene.add(object);
+            },
+
+            function(xhr){
+                console.log((xhr.loaded / xhr.total * 100) + "% loaded");
+            },
+
+            function(error){
+                console.error(error);
+            }
+        );
+
+        this.renderer = new THREE.WebGLRenderer({ alpha: true});
+
+        const width = this.container.width;
+		const height = this.container.height;
+        this.renderer.setSize(width, height, false);
+
+        this.container.appendChild(this.renderer.domElement);
+
+        this.camera.position.z = 5;
+
+        this.toplight = new THREE.DirectionalLight(0xffffff, 1);
+        this.topLight.position.set(500, 500, 500);
+        this.topLight.castShadow = true;
+        this.scene.add(this.topLight);
+
+        this.ambientLight = new THREE.AmbientLight(0x333333, this.renderobject === "soda_can" ? 5 : 1);
+        this.scene.add(this.ambientLight);
+
+        if (this.renderobject === "soda_can") {
+            this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+          }
 	}
 }
 
