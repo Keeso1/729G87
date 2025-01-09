@@ -50,13 +50,14 @@ header > *{
     min-height: 100vh;
     max-width:  80rem;
     background-color: var(--primary-color);
+    font-size:2px;
+    justify-content: center;
 }
 .slider{
     display:flex;
     align-items: center;
-    border-radius: 5px;
-    gap: 200px;
-    width:1077px;
+    gap: 100em;
+    width:545em;
     overflow-x: auto;
     
 }
