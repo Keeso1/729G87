@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+*::-webkit-scrollbar{
+display:none;
+}
+
 :root{
     --primary-color: hsl(291,99%,9%);
     --secondary-color: hsl(183, 63%, 100%);
@@ -60,8 +64,4 @@ header > *{
     width:545em;
     overflow-x: auto;
     
-}
-
-.slider::-webkit-scrollbar{
-    display:none;
 }
