@@ -161,12 +161,25 @@ class MyComponent extends HTMLElement {
             const resetSlider = () => {
               slider.classList.remove("scaled");
             }
-            slider.addEventListener('wheel', (evt) => {
-              evt.preventDefault();
-              slider.scrollLeft += evt.deltaY;
-              
-          });
+           
 
+slider.addEventListener('wheel', (evt) => {
+
+  evt.preventDefault();
+
+
+  let intendedDelta = evt.deltaY; 
+
+ 
+  const MAX_SCROLL = 20;
+  if (intendedDelta > MAX_SCROLL) intendedDelta = MAX_SCROLL;
+  if (intendedDelta < -MAX_SCROLL) intendedDelta = -MAX_SCROLL;
+
+
+  slider.scrollLeft += intendedDelta;
+}, { passive: false }); 
+
+              
             slider.addEventListener("scroll", () => { 
                 scaleSlider();
                 scaleCard();
