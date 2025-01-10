@@ -48,6 +48,11 @@ class MyCan extends HTMLElement {
     connectedCallback() {
         this.init();
         this.animate();
+        this.onmousemove = (e) => {
+            this.mouseX = e.clientX;
+            this.mouseY = e.clientY; 
+            // TODO
+          }
     }
 
     init() {
@@ -59,6 +64,12 @@ class MyCan extends HTMLElement {
         this.object;
 
         this.controls;
+
+        const width = this.container.offsetWidth;
+        const height = this.container.offsetHeight;
+
+        this.mouseX = width / 2;
+        this.mouseY = height / 2;
 
         this.renderobject = "soda_can";
 
@@ -89,8 +100,6 @@ class MyCan extends HTMLElement {
 
         this.renderer = new THREE.WebGLRenderer({ alpha: true});
 
-        const width = this.container.offsetWidth;
-        const height = this.container.offsetHeight;
         this.renderer.setSize(width, height, false);
 
         this.container.appendChild(this.renderer.domElement);
@@ -124,7 +133,11 @@ class MyCan extends HTMLElement {
 
     animate() {
         requestAnimationFrame(() => this.animate());
-        if (this.controls) this.controls.update();
+        if (this.object && this.objToRender === "soda_can") {
+            this.object.rotation.y = -3 + this.mouseX / width * 3;
+            this.object.rotation.x = -1.2 + this.mouseY * 2.5 / height;
+            // TODO
+          }
         this.renderer.render(this.scene, this.camera);
     }
 }
