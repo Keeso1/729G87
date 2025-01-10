@@ -116,6 +116,7 @@ class MyCan extends HTMLElement {
 
         if (this.renderobject === "soda_can") {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+            this.controls.enableZoom = false;
           }
 
         window.addEventListener("resize", () => {
