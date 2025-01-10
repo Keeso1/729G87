@@ -47,52 +47,58 @@ class MyCan extends HTMLElement {
     
     connectedCallback() {
         this.init();
-        this.renderer.render(this.scene, this.camera);
+        this.animate();
     }
 
     init() {
         this.scene = new THREE.Scene();
 
-        this.camera = new THREE.PerspectiveCamera(50, this.host.offsetWidth / this.host.offsetWidth, 0.1, 100);
+        this.camera = new THREE.PerspectiveCamera(50, this.container.offsetWidth / this.container.offsetHeight, 0.1, 100);
         console.log( "camera:", this.host.offsetWidth, this.host.offsetHeight );
 
         this.object;
 
         this.controls;
 
-        this.renderobject = "can";
+        this.renderobject = "soda_can";
 
         this.Loader = new GLTFLoader();
 
         this.Loader.load(
-            "models/${soda_can}/scene.gltf",
+            `models/${this.renderobject}/scene.gltf`,
 
-            function(gltf){
-                object = gltf.this.scene;
-                this.scene.add(object);
+            (gltf) =>{
+                this.object = gltf.scene;
+
+                const box = new THREE.Box3().setFromObject(this.object);
+                const size = new THREE.Vector3();
+                box.getSize(size);
+                const can_height = size.y;
+                this.object.position.set(0, -can_height / 2, 0);
+                this.scene.add(this.object);
             },
 
-            function(xhr){
+            (xhr) => {
                 console.log((xhr.loaded / xhr.total * 100) + "% loaded");
             },
 
-            function(error){
+            (error) => {
                 console.error(error);
             }
         );
 
         this.renderer = new THREE.WebGLRenderer({ alpha: true});
 
-        const width = this.container.width;
-		const height = this.container.height;
+        const width = this.container.offsetWidth;
+        const height = this.container.offsetHeight;
         this.renderer.setSize(width, height, false);
 
         this.container.appendChild(this.renderer.domElement);
 
-        this.camera.position.z = 5;
+        this.camera.position.set(7, -3, 3);
 
-        this.toplight = new THREE.DirectionalLight(0xffffff, 1);
-        this.topLight.position.set(500, 500, 500);
+        this.topLight = new THREE.DirectionalLight(0xffffff, 1);
+        this.topLight.position.set(1, 1, 1);
         this.topLight.castShadow = true;
         this.scene.add(this.topLight);
 
@@ -103,12 +109,24 @@ class MyCan extends HTMLElement {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
           }
 
-        window.addEventListener("resize", function () {
-            this.camera.aspect = window.innerWidth / window.innerHeight;
+        window.addEventListener("resize", () => {
+            const width = this.container.offsetWidth;
+            const height = this.container.offsetHeight;
+            console.log(width, height)
+            this.camera.aspect = width/height;
             this.camera.updateProjectionMatrix();
-            renderer.setSize(width, height);
+            this.renderer.setSize(width, height);
         });
+
+        const axesHelper = new THREE.AxesHelper(5);
+        this.scene.add(axesHelper);
 	}
+
+    animate() {
+        requestAnimationFrame(() => this.animate());
+        if (this.controls) this.controls.update();
+        this.renderer.render(this.scene, this.camera);
+    }
 }
 
 customElements.define('my-can', MyCan);
