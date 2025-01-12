@@ -33,12 +33,12 @@ class Musicbtn extends HTMLElement {
             }
         </style>
         
-        <audio controls loop muted>
-            <source src="audio/technoloop.mp3" type="audio/mpeg">
+        <audio controls autoplay loop muted>
+            <source src="/audio/technoloop.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <button class="mute-btn">
-            <img src="icons/unmute.svg" alt="Unmute Button">
+            <img src="/icons/mute.svg" alt="mute Button">
         </button>
         `
         this.attachShadow({ mode: 'open' });
@@ -46,18 +46,20 @@ class Musicbtn extends HTMLElement {
     }
     connectedCallback() {
         const audio = this.shadowRoot.querySelector('audio');
+        audio.volume = 0.1;
         const button = this.shadowRoot.querySelector('.mute-btn');
         const icon = button.querySelector('img');
 
 
         button.addEventListener("click", () => {
             audio.muted = !audio.muted;
+            console.log(audio.getAttributeNames());
+            console.log(icon.src);
             if(audio.muted){
-                console.log(icon.src)
-                icon.src = "icons/unmute.svg";
-                icon.alt = 'Mute Button';
+                icon.src = "/icons/mute.svg";
+                icon.alt = 'mute Button';
             } else {
-                icon.src = "icons/mute.svg";
+                icon.src = "/icons/unmute.svg";
                 icon.alt = 'Unmute Button';
             }
         });
