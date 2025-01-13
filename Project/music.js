@@ -33,7 +33,7 @@ class Musicbtn extends HTMLElement {
             }
         </style>
         
-        <audio controls autoplay loop muted>
+        <audio controls="" preload="" loop="" muted="">
             <source src="/audio/technoloop.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
@@ -50,11 +50,37 @@ class Musicbtn extends HTMLElement {
         const button = this.shadowRoot.querySelector('.mute-btn');
         const icon = button.querySelector('img');
 
+        let context;
+        console.log(audio);
+        let source;
+        let filter;
+
 
         button.addEventListener("click", () => {
+            if (audio.paused){
+                audio.play();
+            }
+
+            if (!context) {
+                context = new AudioContext();
+                source = context.createMediaElementSource(audio);
+                filter = context.createBiquadFilter();
+                filter.type = "lowpass";
+                filter.frequency.value = 20000;
+                source.connect(filter);
+                filter.connect(context.destination);
+            }
+
+            if (context.state === "suspended") {
+                context.resume();
+            }
+
             audio.muted = !audio.muted;
-            console.log(audio.getAttributeNames());
+
+            console.log("muted: ", audio.muted);
+            console.log("playing: ", !audio.paused);
             console.log(icon.src);
+
             if(audio.muted){
                 icon.src = "/icons/mute.svg";
                 icon.alt = 'mute Button';
@@ -63,6 +89,24 @@ class Musicbtn extends HTMLElement {
                 icon.alt = 'Unmute Button';
             }
         });
+
+        window.addEventListener("scroll", () =>{
+            if (filter){
+                const maxScroll = document.body.scrollHeight - window.innerHeight;
+                console.log("MaxScroll: ", maxScroll)
+                const scrollPosition = window.scrollY;
+                console.log("scrollPosition: ", scrollPosition);
+                const normalizedScroll = scrollPosition / maxScroll;
+                console.log("normalizedScrollvalue: ", normalizedScroll);
+                const minFrequency = 200;
+                const maxFrequency = 20000;
+
+                const frequency = maxFrequency - normalizedScroll * (maxFrequency - minFrequency);
+                console.log("frequency: ", frequency);
+
+                filter.frequency.value = frequency;
+            }
+        })
     }
 }
 customElements.define('music-btn', Musicbtn);
