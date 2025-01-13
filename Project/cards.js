@@ -28,7 +28,7 @@ class MyComponent extends HTMLElement {
     border-right: 4em solid rgba(94, 246, 255, 0.5);
     width:0%;
     margin-right: 100%;
-    transition: 1.5s ease-in;
+    transition: 0.5s ease-in;
     animation:flicker 0.1s infinite;
 }
 

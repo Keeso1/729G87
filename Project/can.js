@@ -33,6 +33,7 @@ class MyCan extends HTMLElement {
 	            height: 100%;
 	            display: block;
 	            border: 1px solid red;
+                background: url("images/Frame 3.svg") no-repeat center center;
             }
 
         </style>
@@ -57,6 +58,7 @@ class MyCan extends HTMLElement {
 
     init() {
         this.scene = new THREE.Scene();
+       
 
         this.camera = new THREE.PerspectiveCamera(50, this.container.offsetWidth / this.container.offsetHeight, 0.1, 100);
         console.log( "camera:", this.host.offsetWidth, this.host.offsetHeight );
@@ -110,9 +112,11 @@ class MyCan extends HTMLElement {
         this.topLight.position.set(1, 1, 1);
         this.topLight.castShadow = true;
         this.scene.add(this.topLight);
+        
 
         this.ambientLight = new THREE.AmbientLight(0x333333, this.renderobject === "soda_can" ? 5 : 1);
         this.scene.add(this.ambientLight);
+
 
         if (this.renderobject === "soda_can") {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);

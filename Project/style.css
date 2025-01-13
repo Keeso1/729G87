@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Rajdhani';
 }
 
 *::-webkit-scrollbar{
@@ -65,4 +64,7 @@ header > *{
     width:545em;
     overflow-x: auto;
     
+}
+#bg{
+    background: url("images/Ultra Maxed.svg") no-repeat center center;
 }
