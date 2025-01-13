@@ -27,7 +27,6 @@ class MyComponent extends HTMLElement {
     background-repeat:no-repeat;
     border-right: 4em solid rgba(94, 246, 255, 0.5);
     width:0%;
-    margin-right: 100%;
     transition: 0.5s ease-in;
     animation:flicker 0.1s infinite;
 }
@@ -46,7 +45,7 @@ class MyComponent extends HTMLElement {
     font-weight:bold;
     text-align: left;
     color: rgba(94, 246, 255, 1);
-    filter:drop-shadow(0 0 5px rgba(94, 246, 255, 0.7));
+    filter:drop-shadow(0 0 3px rgba(94, 246, 255, 0.4));
   
   }
   
@@ -60,7 +59,7 @@ class MyComponent extends HTMLElement {
     font-weight: bold;
     text-align: left;
     color: rgba(94, 246, 255, 1);
-    filter:drop-shadow(0 0 5px rgba(94, 246, 255, 0.7));
+    filter:drop-shadow(0 0 3px rgba(94, 246, 255, 0.4));
   }
   
   .cardimage {
@@ -72,7 +71,7 @@ class MyComponent extends HTMLElement {
     border-radius: 10em;
     width: 185em;
     height: 175em;
-    filter:drop-shadow(0 0 5px rgba(94, 246, 255, 1));
+    filter:drop-shadow(0 0 3px rgba(94, 246, 255, 1));
   }
   
   .scaled {
@@ -138,7 +137,7 @@ class MyComponent extends HTMLElement {
     setTimeout(() => {
       this.card.style.borderRight="none"
     this.card.style.animation="none";
-  }, 3000);
+  }, 2050);
     
       const slider = document.querySelector(".slider");
 
@@ -190,7 +189,7 @@ slider.addEventListener('wheel', (evt) => {
                 isScrolling = setTimeout(() => {
                     resetCard();
                     resetSlider();
-                }, 100);
+                }, 200);
             });
       }
     }
