@@ -71,7 +71,7 @@ class MyCan extends HTMLElement {
         this.mouseX = width / 2;
         this.mouseY = height / 2;
 
-        this.renderobject = "soda_can";
+        this.renderobject = "soda_can(1)";
 
         this.Loader = new GLTFLoader();
 
@@ -81,11 +81,11 @@ class MyCan extends HTMLElement {
             (gltf) =>{
                 this.object = gltf.scene;
 
-                const box = new THREE.Box3().setFromObject(this.object);
-                const size = new THREE.Vector3();
-                box.getSize(size);
-                const can_height = size.y;
-                this.object.position.set(0, -can_height / 2, 0);
+                // const box = new THREE.Box3().setFromObject(this.object);
+                // const size = new THREE.Vector3();
+                // box.getSize(size);
+                // const can_height = size.y;
+                // this.object.position.set(0, -can_height / 2, 0);
                 this.scene.add(this.object);
             },
 
@@ -107,14 +107,16 @@ class MyCan extends HTMLElement {
         this.camera.position.set(7, -3, 3);
 
         this.topLight = new THREE.DirectionalLight(0xffffff, 1);
-        this.topLight.position.set(1, 1, 1);
-        this.topLight.castShadow = true;
+        this.topLight.position.set(5, 10, 0);
+        this.topLight.castShadow = false;
+        this.topLight.intensity = 500;
         this.scene.add(this.topLight);
 
-        this.ambientLight = new THREE.AmbientLight(0x333333, this.renderobject === "soda_can" ? 5 : 1);
+        this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        this.ambientLight.position.set(-5,-5,0);
         this.scene.add(this.ambientLight);
 
-        if (this.renderobject === "soda_can") {
+        if (this.renderobject === "soda_can(1)") {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
             this.controls.enableZoom = false;
           }
@@ -128,13 +130,28 @@ class MyCan extends HTMLElement {
             this.renderer.setSize(width, height);
         });
 
-        const axesHelper = new THREE.AxesHelper(5);
-        this.scene.add(axesHelper);
+        // const axesHelper = new THREE.AxesHelper(5);
+        // this.scene.add(axesHelper);
+
+        // Testing
+
+        // this.object.traverse((child) => {
+        //     if (child.isMesh) {
+        //       child.material.shadowSide = THREE.BackSide;  // Try FrontSide or BackSide
+        //     }
+        //   });
+        const lightHelper = new THREE.DirectionalLightHelper(this.topLight, 1); // 5 is the size of the helper
+        this.scene.add(lightHelper);
+
+        // const shadowHelper = new THREE.CameraHelper(this.topLight.shadow.camera);
+        // this.scene.add(shadowHelper);
+
+        this.renderer.shadowMap.enabled = false;
 	}
 
     animate() {
         requestAnimationFrame(() => this.animate());
-        if (this.object && this.objToRender === "soda_can") {
+        if (this.object && this.objToRender === "soda_can(1)") {
             this.object.rotation.y = -3 + this.mouseX / width * 3;
             this.object.rotation.x = -1.2 + this.mouseY * 2.5 / height;
             // TODO
