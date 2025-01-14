@@ -44,7 +44,6 @@ header > *{
     min-height: 100svh;
     margin: 0;
     display: flex;
-    border: 1px solid white;
 }
 
 .cards-wrapper{

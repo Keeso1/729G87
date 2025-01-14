@@ -25,14 +25,12 @@ class MyCan extends HTMLElement {
             div {
                 width: 100%;
                 min-height: 100%;
-                border: 3px solid #73AD21;
             }
 
             #bg {
                 width: 100%;
 	            height: 100%;
 	            display: block;
-	            border: 1px solid red;
                 background: url("images/Frame 3.svg") no-repeat center center;
             }
 
@@ -49,17 +47,33 @@ class MyCan extends HTMLElement {
     connectedCallback() {
         this.init();
         this.animate();
-        this.onmousemove = (e) => {
-            this.mouseX = e.clientX;
-            this.mouseY = e.clientY; 
-            // TODO
-          }
+
+        const width = this.container.offsetWidth;
+        const height = this.container.offsetHeight;
+
+        this.mouseX = width / 2;
+        this.mouseY = height / 2;
+
+        this.isMouseOver = false;
+
+        this.container.addEventListener("mouseenter", () => {
+            this.isMouseOver = true;
+        });
+
+        this.container.addEventListener("mouseleave", () => {
+            this.isMouseOver = false;
+        });
+
+        this.container.addEventListener("mousemove", (e) => {
+            const rect = this.container.getBoundingClientRect();
+            this.mouseX = e.clientX - rect.left *2;
+            this.mouseY = e.clientY - rect.top * 2;
+        });
     }
 
     init() {
         this.scene = new THREE.Scene();
        
-
         this.camera = new THREE.PerspectiveCamera(50, this.container.offsetWidth / this.container.offsetHeight, 0.1, 100);
         console.log( "camera:", this.host.offsetWidth, this.host.offsetHeight );
 
@@ -82,12 +96,6 @@ class MyCan extends HTMLElement {
 
             (gltf) =>{
                 this.object = gltf.scene;
-
-                // const box = new THREE.Box3().setFromObject(this.object);
-                // const size = new THREE.Vector3();
-                // box.getSize(size);
-                // const can_height = size.y;
-                // this.object.position.set(0, -can_height / 2, 0);
                 this.scene.add(this.object);
             },
 
@@ -108,12 +116,21 @@ class MyCan extends HTMLElement {
 
         this.camera.position.set(7, -3, 3);
 
+        //Light 1
         this.topLight = new THREE.DirectionalLight(0xffffff, 1);
-        this.topLight.position.set(5, 10, 0);
+        this.topLight.position.set(10, 10, 0);
         this.topLight.castShadow = false;
-        this.topLight.intensity = 500;
+        this.topLight.intensity = 100;
         this.scene.add(this.topLight);
 
+        //Light 2
+        this.topLight2 = new THREE.DirectionalLight(0xffffff, 1);
+        this.topLight2.position.set(-10, 10, 0);
+        this.topLight2.castShadow = false;
+        this.topLight2.intensity = 100;
+        this.scene.add(this.topLight2);
+
+        //AmbientLight
         this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
         this.ambientLight.position.set(-5,-5,0);
         this.scene.add(this.ambientLight);
@@ -132,32 +149,32 @@ class MyCan extends HTMLElement {
             this.renderer.setSize(width, height);
         });
 
-        // const axesHelper = new THREE.AxesHelper(5);
-        // this.scene.add(axesHelper);
-
-        // Testing
-
-        // this.object.traverse((child) => {
-        //     if (child.isMesh) {
-        //       child.material.shadowSide = THREE.BackSide;  // Try FrontSide or BackSide
-        //     }
-        //   });
-        const lightHelper = new THREE.DirectionalLightHelper(this.topLight, 1); // 5 is the size of the helper
-        this.scene.add(lightHelper);
-
-        // const shadowHelper = new THREE.CameraHelper(this.topLight.shadow.camera);
-        // this.scene.add(shadowHelper);
-
-        this.renderer.shadowMap.enabled = false;
 	}
 
     animate() {
         requestAnimationFrame(() => this.animate());
-        if (this.object && this.objToRender === "soda_can(1)") {
-            this.object.rotation.y = -3 + this.mouseX / width * 3;
-            this.object.rotation.x = -1.2 + this.mouseY * 2.5 / height;
-            // TODO
-          }
+        const width = this.container.offsetWidth;
+        const height = this.container.offsetHeight;
+
+        const sensitivityX = 2.5; // Increase this value for greater left-right effect
+        const sensitivityY = 0.2;   // Keep this lower for vertical movements
+
+        if (this.object) {
+            if (this.isMouseOver) {
+                // Rotate based on mouse position
+                this.object.rotation.y = (this.mouseX - width / 2) / width * Math.PI * sensitivityX; // Adjust scaling factor if necessary
+                this.object.rotation.x = (this.mouseY - height / 2) / height * Math.PI * sensitivityY; // Adjust scaling factor if necessary
+            } else {
+                const idleRotationSpeed = 0.05; // Adjust speed of interpolation
+                const targetRotationY = this.object.rotation.y + 0.01; // Slow spin
+                const targetRotationX = 0; // Reset vertical tilt
+
+                // Smoothly interpolate current rotation to the target
+                this.object.rotation.y += (targetRotationY - this.object.rotation.y) * idleRotationSpeed;
+                this.object.rotation.x += (targetRotationX - this.object.rotation.x) * idleRotationSpeed;
+            }
+        }
+
         this.renderer.render(this.scene, this.camera);
     }
 }
