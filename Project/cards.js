@@ -29,6 +29,8 @@ class MyComponent extends HTMLElement {
     width:0%;
     transition: 0.5s ease-in;
     animation:flicker 0.1s infinite;
+    scroll-snap-align: center;
+    scroll-snap-stop:always;
 }
 
 .card.reveal{
@@ -139,10 +141,10 @@ class MyComponent extends HTMLElement {
     this.card.style.animation="none";
   }, 2050);
     
+  
       const slider = document.querySelector(".slider");
 
-
-        if (slider) {
+        
             let isScrolling;
 
             const scaleSlider = () =>{
@@ -157,26 +159,7 @@ class MyComponent extends HTMLElement {
                 this.card.classList.remove("scaled");
             };
 
-            const resetSlider = () => {
-              slider.classList.remove("scaled");
-            }
-           
-
-slider.addEventListener('wheel', (evt) => {
-
-  evt.preventDefault();
-
-
-  let intendedDelta = evt.deltaY; 
-
- 
-  const MAX_SCROLL = 20;
-  if (intendedDelta > MAX_SCROLL) intendedDelta = MAX_SCROLL;
-  if (intendedDelta < -MAX_SCROLL) intendedDelta = -MAX_SCROLL;
-
-
-  slider.scrollLeft += intendedDelta;
-}, { passive: false }); 
+            
 
               
             slider.addEventListener("scroll", () => { 
@@ -188,10 +171,9 @@ slider.addEventListener('wheel', (evt) => {
 
                 isScrolling = setTimeout(() => {
                     resetCard();
-                    resetSlider();
                 }, 200);
             });
-      }
+      
     }
   }
   

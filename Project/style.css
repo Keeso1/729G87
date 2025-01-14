@@ -54,14 +54,19 @@ header > *{
     max-width:  80rem;
     background-color: var(--primary-color);
     font-size:2px;
-    justify-content: center;
+    justify-items: center;
 }
 .slider{
     display:flex;
     align-items: center;
-    gap: 100em;
-    width:545em;
+    gap: 200em;
+    min-width: 545em;
     overflow-x: auto;
+    padding: 0em 54em;
+    scroll-snap-type: x mandatory;
+    
+
+    
     
 }
 
