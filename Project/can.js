@@ -165,9 +165,9 @@ class MyCan extends HTMLElement {
                 this.object.rotation.y = (this.mouseX - width / 2) / width * Math.PI * sensitivityX; // Adjust scaling factor if necessary
                 this.object.rotation.x = (this.mouseY - height / 2) / height * Math.PI * sensitivityY; // Adjust scaling factor if necessary
             } else {
-                const idleRotationSpeed = 0.05; // Adjust speed of interpolation
                 const targetRotationY = this.object.rotation.y + 0.01; // Slow spin
                 const targetRotationX = 0; // Reset vertical tilt
+                const idleRotationSpeed = 0.05 + Math.abs(targetRotationY - this.object.rotation.y) * 0.1; // Adjust speed of interpolation
 
                 // Smoothly interpolate current rotation to the target
                 this.object.rotation.y += (targetRotationY - this.object.rotation.y) * idleRotationSpeed;
