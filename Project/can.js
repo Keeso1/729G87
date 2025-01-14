@@ -33,6 +33,7 @@ class MyCan extends HTMLElement {
 	            height: 100%;
 	            display: block;
 	            border: 1px solid red;
+                background: url("images/Frame 3.svg") no-repeat center center;
             }
 
         </style>
@@ -57,6 +58,7 @@ class MyCan extends HTMLElement {
 
     init() {
         this.scene = new THREE.Scene();
+       
 
         this.camera = new THREE.PerspectiveCamera(50, this.container.offsetWidth / this.container.offsetHeight, 0.1, 100);
         console.log( "camera:", this.host.offsetWidth, this.host.offsetHeight );

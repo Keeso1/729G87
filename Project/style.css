@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Rajdhani';
 }
 
 *::-webkit-scrollbar{
@@ -66,3 +65,4 @@ header > *{
     overflow-x: auto;
     
 }
+
