@@ -13,11 +13,15 @@ display:none;
     --accent-color: #5EF6FF;
 }
 
-body{
+html, body {
     margin: 0;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    
+    padding: 0;
+  }
+
+.snapcontainer{
+    height:100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
 
@@ -27,40 +31,60 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--tertiary-color);
-    color: var(--accent-color);
 }
+
+    
+
 
 header > *{
     margin-inline:1rem;
     width: fit-content;
     max-width: 20%;
-    fill: var(--secondary-color);
 }
+
+
+
 
 .three-wrapper{
     position: relative;
+    scroll-snap-align: center;
+    min-height: 100vh;
     width: 100%;
-    min-height: 100svh;
     margin: 0;
     display: flex;
+    background: #6B08B7;
+background: linear-gradient(
+  135deg,
+  rgba(211, 18, 218, 1), 
+  rgb(176, 0, 245)
+);
+ 
 }
 
 .cards-wrapper{
     display: flex;
     position: relative;
-    margin: 0 auto;
+    scroll-snap-align: center;
     min-height: 100vh;
-    max-width:  80rem;
-    background-color: var(--primary-color);
+    margin: 0 auto;
     font-size:2px;
-    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    background: #6B08B7;
+background: linear-gradient(
+  135deg,
+  rgb(119, 0, 143), 
+  rgb(129, 0, 0)
+);
+  
+    
 }
 .slider{
     display:flex;
     align-items: center;
     gap: 200em;
-    min-width: 545em;
+    min-height: 50rem;
+    max-width: 80rem;
     overflow-x: auto;
     padding: 0em 54em;
     scroll-snap-type: x mandatory;
