@@ -89,24 +89,19 @@ class Musicbtn extends HTMLElement {
                 icon.alt = 'Unmute Button';
             }
         });
-
-        window.addEventListener("scroll", () =>{
-            if (filter){
-                const maxScroll = document.body.scrollHeight - window.innerHeight;
-                console.log("MaxScroll: ", maxScroll)
-                const scrollPosition = window.scrollY;
-                console.log("scrollPosition: ", scrollPosition);
+        
+        const snapContainer = document.querySelector(".snapcontainer");
+        snapContainer.addEventListener("scroll", () => {
+            if (filter) {
+                const maxScroll = snapContainer.scrollHeight - snapContainer.clientHeight;
+                const scrollPosition = snapContainer.scrollTop; 
                 const normalizedScroll = scrollPosition / maxScroll;
-                console.log("normalizedScrollvalue: ", normalizedScroll);
                 const minFrequency = 200;
                 const maxFrequency = 20000;
-
                 const frequency = maxFrequency - normalizedScroll * (maxFrequency - minFrequency);
-                console.log("frequency: ", frequency);
-
                 filter.frequency.value = frequency;
             }
-        })
+        });
     }
 }
 customElements.define('music-btn', Musicbtn);

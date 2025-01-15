@@ -47,7 +47,7 @@ class MyComponent extends HTMLElement {
     font-weight:bold;
     text-align: left;
     color: rgba(94, 246, 255, 1);
-    filter:drop-shadow(0 0 3px rgba(94, 246, 255, 0.4));
+    text-shadow: 1px 1px 10px rgba(94, 246, 255, 0.9);
   
   }
   
@@ -60,8 +60,9 @@ class MyComponent extends HTMLElement {
     font-size: 12em;
     font-weight: bold;
     text-align: left;
+    text-shadow: 1px 1px 10px rgba(94, 246, 255, 0.9);
     color: rgba(94, 246, 255, 1);
-    filter:drop-shadow(0 0 3px rgba(94, 246, 255, 0.4));
+    
   }
   
   .cardimage {

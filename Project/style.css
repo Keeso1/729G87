@@ -24,61 +24,64 @@ html, body {
     overflow-y: scroll;
 }
 
-
 header{
     min-height: 20svh;
     max-width: 100svw;
+    font-family: 'Rajdhani';
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgba(94, 246, 255, 1);
+    text-shadow: 1px 1px 8px rgba(94, 246, 255, 0.9);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    scroll-snap-align: center;
+    background: #390244;
+    scroll-snap-stop:always;
 }
 
-    
-
-
-header > *{
-    margin-inline:1rem;
-    width: fit-content;
-    max-width: 20%;
+.logo{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 0.1rem solid rgba(94, 246, 255, 1);
+    filter:drop-shadow(0 0 3px rgba(94, 246, 255, 1));
+    background-image: url("images/logoimage.webp");
+    background-size: cover;
+    margin: 1rem;
 }
 
+music-btn{
+    margin-left: 79%;
+
+}
 
 
 
 .three-wrapper{
     position: relative;
     scroll-snap-align: center;
+    scroll-snap-stop:always;
     min-height: 100vh;
     width: 100%;
     margin: 0;
     display: flex;
     background: #6B08B7;
-background: linear-gradient(
-  135deg,
-  rgba(211, 18, 218, 1), 
-  rgb(176, 0, 245)
-);
- 
+    background: linear-gradient(135deg,rgba(211, 18, 218, 1), rgba(176, 0, 245,1));
 }
 
 .cards-wrapper{
     display: flex;
     position: relative;
     scroll-snap-align: center;
+    scroll-snap-stop:always;
     min-height: 100vh;
     margin: 0 auto;
     font-size:2px;
     justify-content: center;
     align-items: center;
-    background: #6B08B7;
-background: linear-gradient(
-  135deg,
-  rgb(119, 0, 143), 
-  rgb(129, 0, 0)
-);
-  
-    
+    background: linear-gradient(135deg,rgb(65, 0, 90), rgb(61, 0, 158));
 }
+
 .slider{
     display:flex;
     align-items: center;
@@ -87,10 +90,6 @@ background: linear-gradient(
     max-width: 80rem;
     overflow-x: auto;
     padding: 0em 54em;
-    scroll-snap-type: x mandatory;
-    
-
-    
-    
+    scroll-snap-type: x mandatory; 
 }
 
