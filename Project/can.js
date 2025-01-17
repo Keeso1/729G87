@@ -146,18 +146,18 @@ class MyCan extends HTMLElement {
         const width = this.container.offsetWidth;
         const height = this.container.offsetHeight;
 
-        const sensitivityX = 2.5; 
-        const sensitivityY = 0.2;
+        const sensitivityX = 4.5; 
+        const sensitivityY = 1.2;
 
         if (this.object) {
             if (this.isMouseOver) {
                
-                this.object.rotation.y = (this.mouseX - width / 2) / width * Math.PI * sensitivityX; 
-                this.object.rotation.x = (this.mouseY - height / 2) / height * Math.PI * sensitivityY; 
+                this.object.rotation.y = (this.mouseX - width / 2) / width * sensitivityX; 
+                this.object.rotation.x = (this.mouseY - height / 2) / height * sensitivityY; 
             } else {
                 const targetRotationY = this.object.rotation.y + 0.01; 
-                const targetRotationX = 0; 
-                const idleRotationSpeed = 0.05 + Math.abs(targetRotationY - this.object.rotation.y) * 0.1; 
+                const targetRotationX = 0;
+                const idleRotationSpeed = 0.05; 
                 this.object.rotation.y += (targetRotationY - this.object.rotation.y) * idleRotationSpeed;
                 this.object.rotation.x += (targetRotationX - this.object.rotation.x) * idleRotationSpeed;
             }
