@@ -20,7 +20,7 @@ class Musicbtn extends HTMLElement {
                 cursor: pointer;
                 width: 100%;
                 height: 100%;
-                filter:drop-shadow(1px 1px black);
+                
             }
 
             .mute-btn:hover img {
@@ -32,6 +32,7 @@ class Musicbtn extends HTMLElement {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
+                filter:drop-shadow(1px 1px black);
             }
         </style>
         

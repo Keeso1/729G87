@@ -133,6 +133,10 @@ class MyComponent extends HTMLElement {
           this.card.style.borderRight="none"
           this.card.style.animation="none";
       }, 2050);
+      observer.unobserve(wrapper);
+    }
+  })
+})
   
       const slider = document.querySelector(".slider");
 
@@ -148,8 +152,8 @@ class MyComponent extends HTMLElement {
             };
 
             let isScrolling;
-
-            slider.addEventListener("scroll", () => {          
+          
+              slider.addEventListener("scroll", () => {          
                 scaleSlider();
                 scaleCard();
               
@@ -159,10 +163,10 @@ class MyComponent extends HTMLElement {
                     resetCard();
                 }, 200);
             });
-            observer.unobserve(wrapper);
-          }
-        });
-      });
+
+            
+      
+      
       observer.observe(wrapper);
       
     }

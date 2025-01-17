@@ -39,10 +39,11 @@ header{
     background: linear-gradient(135deg, rgba(255, 0, 128, 1), rgba(255, 19, 137, 0.849));
     scroll-snap-stop:always;
     padding: 2rem;
+    border-bottom: 0.1rem solid black;
 }
 
-.header h1:hover {
-    text-decoration: underline;
+h1:hover {
+    text-decoration: underline white;
         
 }
 
@@ -56,7 +57,7 @@ header{
     width: 100%;
     margin: 0;
     display: flex;
-    background: linear-gradient(135deg,rgba(211, 18, 218, 1), rgba(176, 0, 245,1));
+    background: linear-gradient(135deg,rgba(211, 18, 218, 1), rgb(143, 1, 199));
 }
 
 .cards-wrapper{
