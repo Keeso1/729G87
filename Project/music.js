@@ -60,7 +60,7 @@ class Musicbtn extends HTMLElement {
 
 
         button.addEventListener("click", () => {
-            if (audio.paused){
+            if (audio.paused) {
                 audio.play();
             }
 
@@ -84,7 +84,7 @@ class Musicbtn extends HTMLElement {
             console.log("playing: ", !audio.paused);
             console.log(icon.src);
 
-            if(audio.muted){
+            if (audio.muted) {
                 icon.src = "/icons/mute.svg";
                 icon.alt = 'mute Button';
             } else {
@@ -92,12 +92,12 @@ class Musicbtn extends HTMLElement {
                 icon.alt = 'Unmute Button';
             }
         });
-        
+
         const snapContainer = document.querySelector(".snapcontainer");
         snapContainer.addEventListener("scroll", () => {
             if (filter) {
                 const maxScroll = snapContainer.scrollHeight - snapContainer.clientHeight;
-                const scrollPosition = snapContainer.scrollTop; 
+                const scrollPosition = snapContainer.scrollTop;
                 const normalizedScroll = scrollPosition / maxScroll;
                 const minFrequency = 200;
                 const maxFrequency = 20000;

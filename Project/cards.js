@@ -38,7 +38,7 @@ class MyComponent extends HTMLElement {
     clip-path:inset(0);
 }
 
-  .cardheader{
+.cardheader{
     grid-row-start:2;
     grid-column-start: 2;
     grid-row-end: 2;
@@ -49,10 +49,10 @@ class MyComponent extends HTMLElement {
     color: rgba(94, 246, 255, 1);
     text-shadow: 1px 1px 10px rgba(94, 246, 255, 0.9);
   
-  }
+}
   
   
-  .cardparagraph {
+.cardparagraph {
     grid-row-start:3;
     grid-column-start: 2;
     grid-row-end: 3;
@@ -63,9 +63,9 @@ class MyComponent extends HTMLElement {
     text-shadow: 1px 1px 10px rgba(94, 246, 255, 0.9);
     color: rgba(94, 246, 255, 1);
     
-  }
+}
   
-  .cardimage {
+.cardimage {
     grid-row-start:3;
     grid-column-start: 3;
     grid-row-end: 3;
@@ -75,13 +75,13 @@ class MyComponent extends HTMLElement {
     width: 185em;
     height: 175em;
     filter:drop-shadow(0 0 3px rgba(94, 246, 255, 1));
-  }
+}
   
   .scaled {
     transform: scale(1.1); 
     
 }
-     @keyframes flicker {
+  @keyframes flicker {
     0%, 100% {
         border-color: rgba(94, 246, 255, 0.5); 
     }
@@ -95,9 +95,9 @@ class MyComponent extends HTMLElement {
     
 
 
-    </style>
-        <div class="card">
-        </div>
+</style>
+    <div class="card">
+    </div>
       `
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(this.card_component_template.content.cloneNode(true));
@@ -164,11 +164,7 @@ class MyComponent extends HTMLElement {
       }, 200);
     });
 
-
-
-
     observer.observe(wrapper);
-
   }
 }
 
