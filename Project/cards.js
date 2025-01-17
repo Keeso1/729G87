@@ -114,7 +114,6 @@ class MyComponent extends HTMLElement {
       this.querySelector('p').remove();
       this.querySelector('img').remove();
   
-    
       let newheader = document.createElement("h1");
       let newtext = document.createElement("p");
       let newshowcaseimage = document.createElement('img');
@@ -128,31 +127,28 @@ class MyComponent extends HTMLElement {
       newtext.innerHTML = origionalText.innerHTML;
       newshowcaseimage.src = showcaseimage.src;
 
-     
       this.card.appendChild(newheader);
       this.card.appendChild(newtext);
       this.card.appendChild(newshowcaseimage);
       
+
+      // if card showing
       setTimeout(() => {
         this.card.classList.add('reveal');
     }, 1500);
 
     setTimeout(() => {
       this.card.style.borderRight="none"
-    this.card.style.animation="none";
+      this.card.style.animation="none";
   }, 2050);
     
   
       const slider = document.querySelector(".slider");
 
-        
-            let isScrolling;
-
-            const scaleSlider = () =>{
-              slider.classList.add("scaled");
+      const scaleSlider = () =>{
+        slider.classList.add("scaled");
             }
-
-            const scaleCard = () => {
+        const scaleCard = () => {
                 this.card.classList.add("scaled");
             };
 
@@ -160,14 +156,12 @@ class MyComponent extends HTMLElement {
                 this.card.classList.remove("scaled");
             };
 
-            
+            let isScrolling;
 
-              
-            slider.addEventListener("scroll", () => { 
+            slider.addEventListener("scroll", () => {          
                 scaleSlider();
                 scaleCard();
-                
-
+              
                 clearTimeout(isScrolling);
 
                 isScrolling = setTimeout(() => {

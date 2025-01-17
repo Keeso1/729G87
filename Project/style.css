@@ -45,9 +45,14 @@ header{
     border-radius: 50%;
     border: 0.1rem solid rgba(94, 246, 255, 1);
     filter:drop-shadow(0 0 3px rgba(94, 246, 255, 1));
-    background-image: url("images/logoimage.webp");
-    background-size: cover;
-    margin: 1rem;
+    background: none;
+    overflow: hidden;
+    
+}
+.logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 music-btn{
@@ -88,7 +93,7 @@ music-btn{
     gap: 200em;
     min-height: 50rem;
     max-width: 80rem;
-    overflow-x: auto;
+    overflow-x: scroll;
     padding: 0em 54em;
     scroll-snap-type: x mandatory; 
 }

@@ -31,7 +31,7 @@ class MyCan extends HTMLElement {
                 width: 100%;
 	            height: 100%;
 	            display: block;
-                background: url("images/Frame 3.svg") no-repeat center center;
+                background: url("images/CanText.svg") no-repeat center center;
             }
 
         </style>
@@ -66,8 +66,8 @@ class MyCan extends HTMLElement {
 
         this.container.addEventListener("mousemove", (e) => {
             const rect = this.container.getBoundingClientRect();
-            this.mouseX = e.clientX - rect.left *2;
-            this.mouseY = e.clientY - rect.top * 2;
+            this.mouseX = e.clientX - rect.left;
+            this.mouseY = e.clientY - rect.top;
         });
     }
 
@@ -116,24 +116,14 @@ class MyCan extends HTMLElement {
 
         this.camera.position.set(7, -3, 3);
 
-        //Light 1
-        this.topLight = new THREE.DirectionalLight(0xffffff, 1);
+    
+        this.topLight = new THREE.DirectionalLight(0xffffff, 100);
         this.topLight.position.set(10, 10, 0);
-        this.topLight.castShadow = false;
-        this.topLight.intensity = 100;
         this.scene.add(this.topLight);
 
-        //Light 2
-        this.topLight2 = new THREE.DirectionalLight(0xffffff, 1);
+        this.topLight2 = new THREE.DirectionalLight(0xffffff, 100);
         this.topLight2.position.set(-10, 10, 0);
-        this.topLight2.castShadow = false;
-        this.topLight2.intensity = 100;
         this.scene.add(this.topLight2);
-
-        //AmbientLight
-        this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
-        this.ambientLight.position.set(-5,-5,0);
-        this.scene.add(this.ambientLight);
 
         if (this.renderobject === "soda_can(1)") {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -156,20 +146,18 @@ class MyCan extends HTMLElement {
         const width = this.container.offsetWidth;
         const height = this.container.offsetHeight;
 
-        const sensitivityX = 2.5; // Increase this value for greater left-right effect
-        const sensitivityY = 0.2;   // Keep this lower for vertical movements
+        const sensitivityX = 2.5; 
+        const sensitivityY = 0.2;
 
         if (this.object) {
             if (this.isMouseOver) {
-                // Rotate based on mouse position
-                this.object.rotation.y = (this.mouseX - width / 2) / width * Math.PI * sensitivityX; // Adjust scaling factor if necessary
-                this.object.rotation.x = (this.mouseY - height / 2) / height * Math.PI * sensitivityY; // Adjust scaling factor if necessary
+               
+                this.object.rotation.y = (this.mouseX - width / 2) / width * Math.PI * sensitivityX; 
+                this.object.rotation.x = (this.mouseY - height / 2) / height * Math.PI * sensitivityY; 
             } else {
-                const targetRotationY = this.object.rotation.y + 0.01; // Slow spin
-                const targetRotationX = 0; // Reset vertical tilt
-                const idleRotationSpeed = 0.05 + Math.abs(targetRotationY - this.object.rotation.y) * 0.1; // Adjust speed of interpolation
-
-                // Smoothly interpolate current rotation to the target
+                const targetRotationY = this.object.rotation.y + 0.01; 
+                const targetRotationX = 0; 
+                const idleRotationSpeed = 0.05 + Math.abs(targetRotationY - this.object.rotation.y) * 0.1; 
                 this.object.rotation.y += (targetRotationY - this.object.rotation.y) * idleRotationSpeed;
                 this.object.rotation.x += (targetRotationX - this.object.rotation.x) * idleRotationSpeed;
             }
