@@ -20,10 +20,12 @@ class Musicbtn extends HTMLElement {
                 cursor: pointer;
                 width: 100%;
                 height: 100%;
+                filter:drop-shadow(1px 1px black);
             }
 
             .mute-btn:hover img {
                 filter: brightness(0) invert(1);
+                    
             }
 
             .mute-btn img {

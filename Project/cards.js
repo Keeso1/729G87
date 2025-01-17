@@ -106,42 +106,33 @@ class MyComponent extends HTMLElement {
   
     connectedCallback() {
 
-      let origionalHeader = this.querySelector('h1');
-      let origionalText = this.querySelector('p');
-      let showcaseimage = this.querySelector('img');
+      let cardHeader = this.querySelector('h1');
+      let cardParagraph = this.querySelector('p');
+      let cardImage = this.querySelector('img');
 
-      this.querySelector('h1').remove();
-      this.querySelector('p').remove();
-      this.querySelector('img').remove();
+      cardHeader.classList.add("cardheader");
+      cardParagraph.classList.add("cardparagraph");
+      cardImage.classList.add("cardimage");
+
+      this.card.appendChild(cardHeader);
+      this.card.appendChild(cardParagraph);
+      this.card.appendChild(cardImage);
+
+      const wrapper = document.querySelector('.cards-wrapper')
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
   
-      let newheader = document.createElement("h1");
-      let newtext = document.createElement("p");
-      let newshowcaseimage = document.createElement('img');
-
-      newheader.classList.add("cardheader");
-      newtext.classList.add("cardparagraph");
-      newshowcaseimage.classList.add("cardimage");
-  
-
-      newheader.innerHTML = origionalHeader.innerHTML;
-      newtext.innerHTML = origionalText.innerHTML;
-      newshowcaseimage.src = showcaseimage.src;
-
-      this.card.appendChild(newheader);
-      this.card.appendChild(newtext);
-      this.card.appendChild(newshowcaseimage);
+          if (entry.isIntersecting) {
       
-
-      // if card showing
-      setTimeout(() => {
-        this.card.classList.add('reveal');
-    }, 1500);
-
-    setTimeout(() => {
-      this.card.style.borderRight="none"
-      this.card.style.animation="none";
-  }, 2050);
+          setTimeout(() => {
+            this.card.classList.add('reveal');
+        }, 1500);
     
+        setTimeout(() => {
+          this.card.style.borderRight="none"
+          this.card.style.animation="none";
+      }, 2050);
   
       const slider = document.querySelector(".slider");
 
@@ -168,6 +159,11 @@ class MyComponent extends HTMLElement {
                     resetCard();
                 }, 200);
             });
+            observer.unobserve(wrapper);
+          }
+        });
+      });
+      observer.observe(wrapper);
       
     }
   }

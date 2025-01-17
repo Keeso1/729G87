@@ -25,39 +25,25 @@ html, body {
 }
 
 header{
-    min-height: 20svh;
+    min-height: 15svh;
     max-width: 100svw;
-    font-family: 'Rajdhani';
-    font-weight: bold;
+    font-family: 'Audiowide';
     font-size: 3rem;
-    color: rgba(94, 246, 255, 1);
-    text-shadow: 1px 1px 8px rgba(94, 246, 255, 0.9);
+    color: rgba(255, 255, 0, 1);
+    text-shadow: -1px -1px 5px black, 1px -1px 5px black, 1px 1px 5px black,
+    1px 1px 5px black;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     scroll-snap-align: center;
-    background: #390244;
+    background: linear-gradient(135deg, rgba(255, 0, 128, 1), rgba(255, 19, 137, 0.849));
     scroll-snap-stop:always;
+    padding: 2rem;
 }
 
-.logo{
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 0.1rem solid rgba(94, 246, 255, 1);
-    filter:drop-shadow(0 0 3px rgba(94, 246, 255, 1));
-    background: none;
-    overflow: hidden;
-    
-}
-.logo img{
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-}
-
-music-btn{
-    margin-left: 79%;
-
+.header h1:hover {
+    text-decoration: underline;
+        
 }
 
 
@@ -70,7 +56,6 @@ music-btn{
     width: 100%;
     margin: 0;
     display: flex;
-    background: #6B08B7;
     background: linear-gradient(135deg,rgba(211, 18, 218, 1), rgba(176, 0, 245,1));
 }
 
