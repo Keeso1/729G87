@@ -1,8 +1,8 @@
 class MyComponent extends HTMLElement {
-    constructor() {
-      super();
-      this.card_component_template = document.createElement("template");
-      this.card_component_template.innerHTML = `
+  constructor() {
+    super();
+    this.card_component_template = document.createElement("template");
+    this.card_component_template.innerHTML = `
 <style>
     * {
   margin: 0;
@@ -11,7 +11,7 @@ class MyComponent extends HTMLElement {
 }
  
 
-  .card {
+.card {
     z-index: 1;
     font-size:2px;
     position: relative;
@@ -99,79 +99,78 @@ class MyComponent extends HTMLElement {
         <div class="card">
         </div>
       `
-      this.attachShadow({ mode: 'open' });
-      this.shadowRoot.appendChild(this.card_component_template.content.cloneNode(true));
-      this.card = this.shadowRoot.querySelector('.card');
-    }
-  
-    connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(this.card_component_template.content.cloneNode(true));
+    this.card = this.shadowRoot.querySelector('.card');
+  }
 
-      let cardHeader = this.querySelector('h1');
-      let cardParagraph = this.querySelector('p');
-      let cardImage = this.querySelector('img');
+  connectedCallback() {
 
-      cardHeader.classList.add("cardheader");
-      cardParagraph.classList.add("cardparagraph");
-      cardImage.classList.add("cardimage");
+    let cardHeader = this.querySelector('h1');
+    let cardParagraph = this.querySelector('p');
+    let cardImage = this.querySelector('img');
 
-      this.card.appendChild(cardHeader);
-      this.card.appendChild(cardParagraph);
-      this.card.appendChild(cardImage);
+    cardHeader.classList.add("cardheader");
+    cardParagraph.classList.add("cardparagraph");
+    cardImage.classList.add("cardimage");
 
-      const wrapper = document.querySelector('.cards-wrapper')
+    this.card.appendChild(cardHeader);
+    this.card.appendChild(cardParagraph);
+    this.card.appendChild(cardImage);
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-  
-          if (entry.isIntersecting) {
-      
+    const wrapper = document.querySelector('.cards-wrapper')
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
           setTimeout(() => {
             this.card.classList.add('reveal');
-        }, 1500);
-    
-        setTimeout(() => {
-          this.card.style.borderRight="none"
-          this.card.style.animation="none";
-      }, 2050);
-      observer.unobserve(wrapper);
+          }, 1500);
+
+          setTimeout(() => {
+            this.card.style.borderRight = "none"
+            this.card.style.animation = "none";
+          }, 2050);
+          observer.unobserve(wrapper);
+        }
+      })
+    })
+
+    const slider = document.querySelector(".slider");
+
+    const scaleSlider = () => {
+      slider.classList.add("scaled");
     }
-  })
-})
-  
-      const slider = document.querySelector(".slider");
+    const scaleCard = () => {
+      this.card.classList.add("scaled");
+    };
 
-      const scaleSlider = () =>{
-        slider.classList.add("scaled");
-            }
-        const scaleCard = () => {
-                this.card.classList.add("scaled");
-            };
+    const resetCard = () => {
+      this.card.classList.remove("scaled");
+    };
 
-            const resetCard = () => {
-                this.card.classList.remove("scaled");
-            };
+    let isScrolling;
 
-            let isScrolling;
-          
-              slider.addEventListener("scroll", () => {          
-                scaleSlider();
-                scaleCard();
-              
-                clearTimeout(isScrolling);
+    slider.addEventListener("scroll", () => {
+      scaleSlider();
+      scaleCard();
 
-                isScrolling = setTimeout(() => {
-                    resetCard();
-                }, 200);
-            });
+      clearTimeout(isScrolling);
 
-            
-      
-      
-      observer.observe(wrapper);
-      
-    }
+      isScrolling = setTimeout(() => {
+        resetCard();
+      }, 200);
+    });
+
+
+
+
+    observer.observe(wrapper);
+
   }
-  
-  
-  customElements.define('card-component', MyComponent);
-  
+}
+
+
+customElements.define('card-component', MyComponent);
