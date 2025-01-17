@@ -2,16 +2,12 @@ import * as THREE from "three";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-
-
-
-
 class MyCan extends HTMLElement {
     constructor() {
         super();
         const CanTemplate = document.createElement("template");
         CanTemplate.innerHTML =
-        `
+            `
         <style>
             :host {
                 display: block;
@@ -43,7 +39,7 @@ class MyCan extends HTMLElement {
         this.shadowRoot.appendChild(CanTemplate.content.cloneNode(true));
         this.container = this.shadowRoot.querySelector("#bg");
     }
-    
+
     connectedCallback() {
         this.init();
         this.animate();
@@ -73,9 +69,9 @@ class MyCan extends HTMLElement {
 
     init() {
         this.scene = new THREE.Scene();
-       
+
         this.camera = new THREE.PerspectiveCamera(50, this.container.offsetWidth / this.container.offsetHeight, 0.1, 100);
-        console.log( "camera:", this.host.offsetWidth, this.host.offsetHeight );
+        console.log("camera:", this.host.offsetWidth, this.host.offsetHeight);
 
         this.object;
 
@@ -94,7 +90,7 @@ class MyCan extends HTMLElement {
         this.Loader.load(
             `models/${this.renderobject}/scene.gltf`,
 
-            (gltf) =>{
+            (gltf) => {
                 this.object = gltf.scene;
                 this.scene.add(this.object);
             },
@@ -108,7 +104,7 @@ class MyCan extends HTMLElement {
             }
         );
 
-        this.renderer = new THREE.WebGLRenderer({ alpha: true});
+        this.renderer = new THREE.WebGLRenderer({ alpha: true });
 
         this.renderer.setSize(width, height, false);
 
@@ -116,7 +112,7 @@ class MyCan extends HTMLElement {
 
         this.camera.position.set(7, -3, 3);
 
-    
+
         this.topLight = new THREE.DirectionalLight(0xffffff, 100);
         this.topLight.position.set(10, 10, 0);
         this.scene.add(this.topLight);
@@ -128,36 +124,36 @@ class MyCan extends HTMLElement {
         if (this.renderobject === "soda_can(1)") {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
             this.controls.enableZoom = false;
-          }
+        }
 
         window.addEventListener("resize", () => {
             const width = this.container.offsetWidth;
             const height = this.container.offsetHeight;
             console.log(width, height)
-            this.camera.aspect = width/height;
+            this.camera.aspect = width / height;
             this.camera.updateProjectionMatrix();
             this.renderer.setSize(width, height);
         });
 
-	}
+    }
 
     animate() {
         requestAnimationFrame(() => this.animate());
         const width = this.container.offsetWidth;
         const height = this.container.offsetHeight;
 
-        const sensitivityX = 2.5; 
+        const sensitivityX = 2.5;
         const sensitivityY = 0.2;
 
         if (this.object) {
             if (this.isMouseOver) {
-               
-                this.object.rotation.y = (this.mouseX - width / 2) / width * Math.PI * sensitivityX; 
-                this.object.rotation.x = (this.mouseY - height / 2) / height * Math.PI * sensitivityY; 
+
+                this.object.rotation.y = (this.mouseX - width / 2) / width * Math.PI * sensitivityX;
+                this.object.rotation.x = (this.mouseY - height / 2) / height * Math.PI * sensitivityY;
             } else {
-                const targetRotationY = this.object.rotation.y + 0.01; 
-                const targetRotationX = 0; 
-                const idleRotationSpeed = 0.05 + Math.abs(targetRotationY - this.object.rotation.y) * 0.1; 
+                const targetRotationY = this.object.rotation.y + 0.01;
+                const targetRotationX = 0;
+                const idleRotationSpeed = 0.05 + Math.abs(targetRotationY - this.object.rotation.y) * 0.1;
                 this.object.rotation.y += (targetRotationY - this.object.rotation.y) * idleRotationSpeed;
                 this.object.rotation.x += (targetRotationX - this.object.rotation.x) * idleRotationSpeed;
             }
